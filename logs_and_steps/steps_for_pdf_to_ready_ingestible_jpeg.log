@@ -1,0 +1,2342 @@
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/french_municipality_downloads
+$ source ~/.bashrc
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/french_municipality_downloads
+$ samt
+Aliasing `grep' to `grep --color=auto'
+Original (binary) is
+grep is /usr/bin/grep
+Changing ...
+Done
+
+Aliasing `ls' to `ls --color=auto'
+Original (binary) is
+ls is /usr/bin/ls
+Changing ...
+Done
+
+Aliasing `xterm' to `uxterm'
+Original (binary) is
+uxterm is /usr/bin/uxterm
+Changing ...
+Done
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/french_municipality_downloads
+$ checksituation
+
+ Current date/time is
+Mon May 26 17:55:59 MDT 2025
+1748303759
+1748303759_2025-05-26T175559-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/french_municipality_downloads
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/french_municipality_downloads
+$ find . -type f | wc -l
+795
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/french_municipality_downloads
+$ find . -type f | awk -F'.' '{print $NF}' | head
+jpg
+jpg
+jpg
+jpg
+jpg
+jpg
+jpg
+jpg
+jpg
+jpg
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/french_municipality_downloads
+$ find . -type f | awk -F'.' '{print $NF}' | sort | uniq -c | wc -l
+3
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/french_municipality_downloads
+$ find . -type f | awk -F'.' '{print $NF}' | sort | uniq -c
+     57 jpg
+      2 sh
+    736 zip
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/french_municipality_downloads
+$ # Dang, that means I have to extract from ZIP and rename JPGs.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/french_municipality_downloads
+$ explorer . &
+[1] 32897
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/french_municipality_downloads
+$ find . -type f -iname "*.zip" | sort | head -n 1
+./BibliothequesMediathequesDeMetz_-_Ms464_00001.zip
+[1]+  Exit 1                  explorer .
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/french_municipality_downloads
+$ zipinfo BibliothequesMediathequesDeMetz_-_Ms464_00001.zip
+Archive:  BibliothequesMediathequesDeMetz_-_Ms464_00001.zip
+Zip file size: 1995622 bytes, number of entries: 1
+?rw-------  2.0 unx  1995452 b- stor 25-May-24 19:40 entrepot/B574636101_MS0464_0001A.jpg
+1 file, 1995452 bytes uncompressed, 1995452 bytes compressed:  0.0%
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/french_municipality_downloads
+$ zipinfo BibliothequesMediathequesDeMetz_-_Ms464_00001.zip | grep jpg
+?rw-------  2.0 unx  1995452 b- stor 25-May-24 19:40 entrepot/B574636101_MS0464_0001A.jpg
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/french_municipality_downloads
+$ zipinfo BibliothequesMediathequesDeMetz_-_Ms464_00001.zip | grep jpg | awk '{print $NF}'
+entrepot/B574636101_MS0464_0001A.jpg
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/french_municipality_downloads
+$ #for i in *.zip ; do ; done
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/french_municipality_downloads
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/french_municipality_downloads
+$ # https://askubuntu.com/questions/983944/rename-the-files-as-they-are-extracted-from-the-zip-file-as-the-name-of-the-zip
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/french_municipality_downloads
+$
+
+
+for i in *.zip; do \
+  echo; \
+  zip_filepath=$(zipinfo "${i}" | grep jpg | awk '{print $NF}'); \
+  echo "zip_filepath: ${zip_filepath}"; \
+  my_extension="${zip_filepath##*.}"; \
+  highest_zip_dir="${zip_filepath%/*}"; \
+  new_fname_pre="${i}"; \
+  new_fname=$(echo "${new_fname_pre%.*}"); \
+  echo "new_fname: ${new_fname}"; \
+  echo " Command will be:"
+  echo "unip -o -qq \"${i}\" && "\
+"  mv \"${zip_filepath}\" \"./${new_fname}.${my_extension}\""; \
+  echo "      ..."; \
+  unzip_successful=0; \
+  unzip -o -qq "${i}" && unzip_successful=1; \
+  if [ $unzip_successful -eq 1 ]; then
+    echo "          ... unzip success"; \
+    mv "${zip_filepath}" "./${new_fname}.${my_extension}" \
+      && echo "          ... rename success" \
+      || echo "          ... rename FAILURE"; \
+  else \
+    echo "          ... unzip FAILURE ; no rename attempted."; \
+  fi; \
+  rm -rf "${highest_zip_dir}";
+done 2>&1 | tee metz_renames_$(ttdate).out
+
+
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@##############
+#####################################################
+#####################################################
+# BLAH
+#####################################################
+############$$$$$$$$$$$$$$$$$$$$$####################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@#
+
+# STEP blah
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@####################
+###########################################################
+###########################################################
+# We'll start where we have the PDFs downloaded and ready
+# to go. They'll be in
+# /cygdrive/c/DavidFHTW-2025-All_-_move_2024_get_new/\
+#   new_-_folder_for_not-yet-ready_new_imgs/\
+#   new_to_convert_PDF/
+# and there had better be a path:
+# /cygdrive/c/DavidFHTW-2025-All_-_move_2024_get_new/\
+#   new_-_folder_for_not-yet-ready_new_imgs/\
+#   new_to_convert_PDF/
+###########################################################
+############$$$$$$$$$$$$$$$$$$$$$##########################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@$@$@#
+
+# STEP 1
+
+
+
+
+##  Make sure conda is right for unwinding_the_binding.py
+##+ (just going with the extract as PNG for now)
+
+##  Run unwinding_the_binding.py from the Conda CMD
+
+
+
+
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@####################
+###########################################################
+###########################################################
+# Do preliminary checks. Check for number of files from 
+# each PDF.
+# Check for BnF files that we already know to be Palette
+# and also which have, e.g. p0-3, p0-5, p1-9, p1-15, which
+# messes up the renaming.
+# Check for other Palette, multiple pics on one page.
+###########################################################
+############$$$$$$$$$$$$$$$$$$$$$##########################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@$@$@#
+
+# STEP 2
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ checksituation
+
+ Current date/time is
+Tue May 27 17:12:22 MDT 2025
+1748387542
+1748387542_2025-05-27T171222-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f | wc -l
+11837
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png" | wc -l
+11837
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ #  Let's see if there are any filenames with spaces
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png" | grep " " | wc -l
+0
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | sed 's#_p[0-9]\+[-][0-9]\+[.][^.]\{2,5\}$##g' | sort | uniq -c
+    201 BnF_-_Ms-Grec-1371-palimpsest
+     82 BnF_-_Ms-Grec-2089-palimpsest
+    516 BnF_-_Ms-Grec-2991
+    717 Bodl_-_Bodleian-Library-MS-Broxb-84-3
+    250 Bodl_-_Bodleian-Library-MS-Canon-Class-Lat-274
+    535 Bodl_-_Bodleian-Library-MS-Douce-18
+    435 Bodl_-_Bodleian-Library-MS-Douce-6
+    187 Bodl_-_Bodleian-Library-MS-Germ-d-4
+    353 Bodl_-_Bodleian-Library-MS-Hamilton-12
+    355 Bodl_-_Bodleian-Library-MS-Hamilton-2
+    531 Bodl_-_Bodleian-Library-MS-Hamilton-33
+    733 Bodl_-_Bodleian-Library-MS-Hamilton-40
+    357 Bodl_-_Bodleian-Library-MS-Hamilton-55
+    277 Bodl_-_Bodleian-Library-MS-Lat-liturg-d-38
+    211 Bodl_-_Bodleian-Library-MS-Lat-th-e-23
+    313 Bodl_-_Bodleian-Library-MS-Laud-Misc-107
+    331 Bodl_-_Bodleian-Library-MS-Laud-Misc-133
+    773 Bodl_-_Bodleian-Library-MS-Laud-Misc-183-2
+    399 Bodl_-_Bodleian-Library-MS-Laud-Misc-626
+    287 Bodl_-_Bodleian-Library-MS-Lyell-85
+    385 Bodl_-_Christ-Church-MS-89
+    299 Bodl_-_Exeter-College-MS-3
+    695 Bodl_-_Exeter-College-MS-5
+    763 Bodl_-_Queen-s-College-MS-305
+    269 Bodl_-_Queen-s-College-MS-319
+    178 DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-12
+    283 DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-19
+    374 DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-3
+    748 France-StYrieixLaPercheBibMun_-_BibleDeSaintYrieix_Ms-15-X-1948
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | sed 's#_p[0-9]\+[-][0-9]\+[.][^.]\{2,5\}$##g' | sort | uniq -c | wc -l
+29
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | sed 's#_p[0-9]\+[-][0-9]\+[.][^.]\{2,5\}$##g' | sort | uniq > b4_all_docs_pdfs_in_batch.lst
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ cat b4_all_docs_pdfs_in_batch.lst
+BnF_-_Ms-Grec-1371-palimpsest
+BnF_-_Ms-Grec-2089-palimpsest
+BnF_-_Ms-Grec-2991
+Bodl_-_Bodleian-Library-MS-Broxb-84-3
+Bodl_-_Bodleian-Library-MS-Canon-Class-Lat-274
+Bodl_-_Bodleian-Library-MS-Douce-18
+Bodl_-_Bodleian-Library-MS-Douce-6
+Bodl_-_Bodleian-Library-MS-Germ-d-4
+Bodl_-_Bodleian-Library-MS-Hamilton-12
+Bodl_-_Bodleian-Library-MS-Hamilton-2
+Bodl_-_Bodleian-Library-MS-Hamilton-33
+Bodl_-_Bodleian-Library-MS-Hamilton-40
+Bodl_-_Bodleian-Library-MS-Hamilton-55
+Bodl_-_Bodleian-Library-MS-Lat-liturg-d-38
+Bodl_-_Bodleian-Library-MS-Lat-th-e-23
+Bodl_-_Bodleian-Library-MS-Laud-Misc-107
+Bodl_-_Bodleian-Library-MS-Laud-Misc-133
+Bodl_-_Bodleian-Library-MS-Laud-Misc-183-2
+Bodl_-_Bodleian-Library-MS-Laud-Misc-626
+Bodl_-_Bodleian-Library-MS-Lyell-85
+Bodl_-_Christ-Church-MS-89
+Bodl_-_Exeter-College-MS-3
+Bodl_-_Exeter-College-MS-5
+Bodl_-_Queen-s-College-MS-305
+Bodl_-_Queen-s-College-MS-319
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-12
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-19
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-3
+France-StYrieixLaPercheBibMun_-_BibleDeSaintYrieix_Ms-15-X-1948
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "BnF*.png" | awk -F'/' '{print $NF}' | sed 's#_p[0-9]\+[-][0-9]\+[.][^.]\{2,5\}$##g' | sort | uniq -c
+    201 BnF_-_Ms-Grec-1371-palimpsest
+     82 BnF_-_Ms-Grec-2089-palimpsest
+    516 BnF_-_Ms-Grec-2991
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ b4_file_list=$(find . -type f -iname "BnF*.png" | awk -F'/' '{print $NF}' | sed 's#_p[0-9]\+[-][0-9]\+[.][^.]\{2,5\}$##g' | sort | uniq | tr '\n' '|')
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ echo "${b4_file_list}" | tr '|' '\n'
+BnF_-_Ms-Grec-1371-palimpsest
+BnF_-_Ms-Grec-2089-palimpsest
+BnF_-_Ms-Grec-2991
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "BnF*.png" | awk -F'/' '{print $NF}' | grep "^[.]/BnF.*_p[01][-][0-9]\+[.][^.]\{2,5\}$" | wc -l
+0
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "BnF*.png" | awk -F'/' '{print $NF}' | grep "_p[01][-][0-9]\+[.][^.]\{2,5\}$" | wc -l
+24
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "BnF*.png" | awk -F'/' '{print $NF}' | grep "_p[01][-][0-9]\+[.][^.]\{2,5\}$"
+BnF_-_Ms-Grec-2089-palimpsest_p1-16.png
+BnF_-_Ms-Grec-2089-palimpsest_p0-6.png
+BnF_-_Ms-Grec-2991_p1-18.png
+BnF_-_Ms-Grec-2089-palimpsest_p1-17.png
+BnF_-_Ms-Grec-2991_p1-15.png
+BnF_-_Ms-Grec-1371-palimpsest_p1-17.png
+BnF_-_Ms-Grec-1371-palimpsest_p1-16.png
+BnF_-_Ms-Grec-2991_p1-17.png
+BnF_-_Ms-Grec-2991_p0-6.png
+BnF_-_Ms-Grec-2089-palimpsest_p0-8.png
+BnF_-_Ms-Grec-1371-palimpsest_p1-18.png
+BnF_-_Ms-Grec-2089-palimpsest_p0-9.png
+BnF_-_Ms-Grec-1371-palimpsest_p1-15.png
+BnF_-_Ms-Grec-1371-palimpsest_p0-6.png
+BnF_-_Ms-Grec-2991_p0-9.png
+BnF_-_Ms-Grec-2991_p1-16.png
+BnF_-_Ms-Grec-2089-palimpsest_p0-7.png
+BnF_-_Ms-Grec-2089-palimpsest_p1-15.png
+BnF_-_Ms-Grec-1371-palimpsest_p0-9.png
+BnF_-_Ms-Grec-2991_p0-8.png
+BnF_-_Ms-Grec-2991_p0-7.png
+BnF_-_Ms-Grec-1371-palimpsest_p0-8.png
+BnF_-_Ms-Grec-2089-palimpsest_p1-18.png
+BnF_-_Ms-Grec-1371-palimpsest_p0-7.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "BnF*.png" | awk -F'/' '{print $NF}' | grep "_p[01][-][0-9]\+[.][^.]\{2,5\}$" | sort
+BnF_-_Ms-Grec-1371-palimpsest_p0-6.png
+BnF_-_Ms-Grec-1371-palimpsest_p0-7.png
+BnF_-_Ms-Grec-1371-palimpsest_p0-8.png
+BnF_-_Ms-Grec-1371-palimpsest_p0-9.png
+BnF_-_Ms-Grec-1371-palimpsest_p1-15.png
+BnF_-_Ms-Grec-1371-palimpsest_p1-16.png
+BnF_-_Ms-Grec-1371-palimpsest_p1-17.png
+BnF_-_Ms-Grec-1371-palimpsest_p1-18.png
+BnF_-_Ms-Grec-2089-palimpsest_p0-6.png
+BnF_-_Ms-Grec-2089-palimpsest_p0-7.png
+BnF_-_Ms-Grec-2089-palimpsest_p0-8.png
+BnF_-_Ms-Grec-2089-palimpsest_p0-9.png
+BnF_-_Ms-Grec-2089-palimpsest_p1-15.png
+BnF_-_Ms-Grec-2089-palimpsest_p1-16.png
+BnF_-_Ms-Grec-2089-palimpsest_p1-17.png
+BnF_-_Ms-Grec-2089-palimpsest_p1-18.png
+BnF_-_Ms-Grec-2991_p0-6.png
+BnF_-_Ms-Grec-2991_p0-7.png
+BnF_-_Ms-Grec-2991_p0-8.png
+BnF_-_Ms-Grec-2991_p0-9.png
+BnF_-_Ms-Grec-2991_p1-15.png
+BnF_-_Ms-Grec-2991_p1-16.png
+BnF_-_Ms-Grec-2991_p1-17.png
+BnF_-_Ms-Grec-2991_p1-18.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | grep "_p[01][-][0-9]\+[.][^.]\{2,5\}$" | wc -l
+57
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "BnF*.png" | awk -F'/' '{print $NF}' | grep "_p[01][-][0-9]\+[.][^.]\{2,5\}$" | tr '\n' '\0' | xargs -I'{}' -0 rm "{}"
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "BnF*.png" | awk -F'/' '{print $NF}' | grep "_p[01][-][0-9]\+[.][^.]\{2,5\}$" | wc -l
+0
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | grep "_p[01][-][0-9]\+[.][^.]\{2,5\}$" | wc -l
+33
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | grep "_p[01][-][0-9]\+[.][^.]\{2,5\}$" # why odd?
+Bodl_-_Queen-s-College-MS-319_p0-10.png
+Bodl_-_Bodleian-Library-MS-Lat-th-e-23_p0-11.png
+Bodl_-_Bodleian-Library-MS-Laud-Misc-107_p0-11.png
+Bodl_-_Bodleian-Library-MS-Hamilton-33_p0-11.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-3_p0-1634.png
+Bodl_-_Bodleian-Library-MS-Germ-d-4_p0-11.png
+Bodl_-_Bodleian-Library-MS-Laud-Misc-183-2_p0-11.png
+Bodl_-_Exeter-College-MS-3_p0-8.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-12_p1-6.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-12_p0-768.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-3_p1-6.png
+Bodl_-_Bodleian-Library-MS-Laud-Misc-133_p0-11.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-19_p0-904.png
+Bodl_-_Bodleian-Library-MS-Douce-18_p0-11.png
+Bodl_-_Christ-Church-MS-89_p0-8.png
+Bodl_-_Bodleian-Library-MS-Laud-Misc-626_p0-11.png
+Bodl_-_Bodleian-Library-MS-Canon-Class-Lat-274_p0-11.png
+France-StYrieixLaPercheBibMun_-_BibleDeSaintYrieix_Ms-15-X-1948_p0-6193.png
+Bodl_-_Bodleian-Library-MS-Hamilton-12_p0-11.png
+Bodl_-_Bodleian-Library-MS-Lat-liturg-d-38_p0-11.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-19_p0-905.png
+Bodl_-_Queen-s-College-MS-305_p0-10.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-19_p1-5.png
+Bodl_-_Exeter-College-MS-5_p0-8.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-3_p0-1635.png
+Bodl_-_Bodleian-Library-MS-Hamilton-2_p0-11.png
+France-StYrieixLaPercheBibMun_-_BibleDeSaintYrieix_Ms-15-X-1948_p1-4.png
+Bodl_-_Bodleian-Library-MS-Hamilton-55_p0-11.png
+Bodl_-_Bodleian-Library-MS-Hamilton-40_p0-11.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-12_p0-767.png
+Bodl_-_Bodleian-Library-MS-Douce-6_p0-11.png
+Bodl_-_Bodleian-Library-MS-Lyell-85_p0-11.png
+Bodl_-_Bodleian-Library-MS-Broxb-84-3_p0-11.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | grep "_p[01][-][0-9]\+[.][^.]\{2,5\}$" | sort # why odd?
+Bodl_-_Bodleian-Library-MS-Broxb-84-3_p0-11.png
+Bodl_-_Bodleian-Library-MS-Canon-Class-Lat-274_p0-11.png
+Bodl_-_Bodleian-Library-MS-Douce-18_p0-11.png
+Bodl_-_Bodleian-Library-MS-Douce-6_p0-11.png
+Bodl_-_Bodleian-Library-MS-Germ-d-4_p0-11.png
+Bodl_-_Bodleian-Library-MS-Hamilton-12_p0-11.png
+Bodl_-_Bodleian-Library-MS-Hamilton-2_p0-11.png
+Bodl_-_Bodleian-Library-MS-Hamilton-33_p0-11.png
+Bodl_-_Bodleian-Library-MS-Hamilton-40_p0-11.png
+Bodl_-_Bodleian-Library-MS-Hamilton-55_p0-11.png
+Bodl_-_Bodleian-Library-MS-Lat-liturg-d-38_p0-11.png
+Bodl_-_Bodleian-Library-MS-Lat-th-e-23_p0-11.png
+Bodl_-_Bodleian-Library-MS-Laud-Misc-107_p0-11.png
+Bodl_-_Bodleian-Library-MS-Laud-Misc-133_p0-11.png
+Bodl_-_Bodleian-Library-MS-Laud-Misc-183-2_p0-11.png
+Bodl_-_Bodleian-Library-MS-Laud-Misc-626_p0-11.png
+Bodl_-_Bodleian-Library-MS-Lyell-85_p0-11.png
+Bodl_-_Christ-Church-MS-89_p0-8.png
+Bodl_-_Exeter-College-MS-3_p0-8.png
+Bodl_-_Exeter-College-MS-5_p0-8.png
+Bodl_-_Queen-s-College-MS-305_p0-10.png
+Bodl_-_Queen-s-College-MS-319_p0-10.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-12_p0-767.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-12_p0-768.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-12_p1-6.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-19_p0-904.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-19_p0-905.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-19_p1-5.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-3_p0-1634.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-3_p0-1635.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-3_p1-6.png
+France-StYrieixLaPercheBibMun_-_BibleDeSaintYrieix_Ms-15-X-1948_p0-6193.png
+France-StYrieixLaPercheBibMun_-_BibleDeSaintYrieix_Ms-15-X-1948_p1-4.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ #  Interesting; Bodleian has no images on p1 (00002)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ #+ I don't think I'd ever noticed that.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ #+ I'm pretty sure that means there are no images with Bodl.*_00002.<ext>
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | grep "_p[01][-][0-9]\+[.][^.]\{2,5\}$" | grep "Digitale" | wc -l
+9
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | grep "_p[01][-][0-9]\+[.][^.]\{2,5\}$" | grep "Digitale"
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-3_p0-1634.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-12_p1-6.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-12_p0-768.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-3_p1-6.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-19_p0-904.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-19_p0-905.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-19_p1-5.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-3_p0-1635.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-12_p0-767.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | grep "_p[01][-][0-9]\+[.][^.]\{2,5\}$" | grep "Digitale" | sort
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-12_p0-767.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-12_p0-768.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-12_p1-6.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-19_p0-904.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-19_p0-905.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-19_p1-5.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-3_p0-1634.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-3_p0-1635.png
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-3_p1-6.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$
+
+
+
+
+
+#NOPE# 
+#NOPE# 
+#NOPE# #$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$@$@$#
+#NOPE# #####################@@@@@@@@@@@@@@@@@@####################
+#NOPE# ###########################################################
+#NOPE# ###########################################################
+#NOPE# # Check for number of files from each PDF (search using
+#NOPE# # the bare, strip off the     "_[0-9]\{5\}[.][^.]\{2,5\}$"
+#NOPE# # (or, to be exact for here:  "_[0-9]\{5\}[.]png$")
+#NOPE# # and do  sort | uniq -c  (all in the converted_from_PDF)  
+#NOPE# ###########################################################
+#NOPE# ############$$$$$$$$$$$$$$$$$$$$$##########################
+#NOPE# #@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@$@$@#
+#NOPE# 
+#NOPE# # STEP 2
+#NOPE# 
+#NOPE# ##  Done in last part
+
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@####################
+###########################################################
+###########################################################
+# Rename the files  
+###########################################################
+############$$$$$$$$$$$$$$$$$$$$$##########################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@$@$@#
+
+# STEP 3
+
+
+
+find . -type f -iname "*.png" > fnames.lst; \
+echo -e "\n\n  $(date +'%s_%Y-%m-%dT%H%M%S%z') \n" | tee -a rename.out; \
+find . -type f -iname "*.png" -print0 | \
+xargs -I'{}' -0 bash -c '
+orig="{}";
+echo;
+echo "orig: ${orig}";
+my_first=$(echo "${orig}" | \
+  sed '"'"'s#^[.]/\(.*\)p\([0-9]\+\)[-][0-9]\+\([.]png\)$#\1#g'"'"');
+echo "my_first: ${my_first}";
+my_end=$(echo "${orig}" | \
+  sed '"'"'s#^[.]/\(.*p\)\([0-9]\+\)[-][0-9]\+\([.]png\)$#\3#g'"'"');
+echo "my_end: ${my_end}";
+my_second=$(echo "${orig}" | \
+  sed '"'"'s#^[.]/\(.*p\)\([0-9]\+\)[-][0-9]\+\([.]png\)$#\2#g'"'"');
+echo "my_second: $my_second";
+my_num=0;
+my_unpad=$(echo "${my_second}+1" | bc);
+echo "my_unpad: ${my_unpad}";
+my_num=0;
+if [ $my_unpad -lt 10 ]; then
+  my_num="0000${my_unpad}";
+elif [ $my_unpad -lt 100 ]; then
+  my_num="000${my_unpad}";
+elif [ $my_unpad -lt 1000 ]; then
+  my_num="00${my_unpad}";
+elif [ $my_unpad -lt 10000 ]; then
+  my_num="0${my_unpad}";
+else
+  my_num="${my_unpad}";
+fi;
+echo "my_num: ${my_num}";
+new_fname="${my_first}${my_num}${my_end}";
+echo "  Command will be:" | tee -a rename.out;
+echo "mv \"${orig}\" \"${new_fname}\"" | tee -a rename.out;
+echo "    ..." | tee -a rename.out;
+mv "${orig}" "${new_fname}" \
+  && echo -e "        ... success\n" | tee -a rename.out \
+  || echo -e "        ... FAILURE\n" | tee -a rename.out
+'
+
+
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@####################
+###########################################################
+###########################################################
+# Rename the files
+###########################################################
+############$$$$$$$$$$$$$$$$$$$$$##########################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@$@$@#
+
+# STEP 3
+
+
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png" > fnames.lst; \
+echo -e "\n\n  $(date +'%s_%Y-%m-%dT%H%M%S%z') \n" | tee -a rename.out; \
+find . -type f -iname "*.png" -print0 | \
+xargs -I'{}' -0 bash -c '
+orig="{}";
+echo;
+echo "orig: ${orig}";
+my_first=$(echo "${orig}" | \
+  sed '"'"'s#^[.]/\(.*\)p\([0-9]\+\)[-][0-9]\+\([.]png\)$#\1#g'"'"');
+echo "my_first: ${my_first}";
+my_end=$(echo "${orig}" | \
+  sed '"'"'s#^[.]/\(.*p\)\([0-9]\+\)[-][0-9]\+\([.]png\)$#\3#g'"'"');
+echo "my_end: ${my_end}";
+my_second=$(echo "${orig}" | \
+  sed '"'"'s#^[.]/\(.*p\)\([0-9]\+\)[-][0-9]\+\([.]png\)$#\2#g'"'"');
+echo "my_second: $my_second";
+my_num=0;
+my_unpad=$(echo "${my_second}+1" | bc);
+echo "my_unpad: ${my_unpad}";
+my_num=0;
+if [ $my_unpad -lt 10 ]; then
+  my_num="0000${my_unpad}";
+elif [ $my_unpad -lt 100 ]; then
+  my_num="000${my_unpad}";
+elif [ $my_unpad -lt 1000 ]; then
+  my_num="00${my_unpad}";
+elif [ $my_unpad -lt 10000 ]; then
+  my_num="0${my_unpad}";
+else
+  my_num="${my_unpad}";
+fi;
+echo "my_num: ${my_num}";
+new_fname="${my_first}${my_num}${my_end}";
+echo "  Command will be:" | tee -a rename.out;
+echo "mv \"${orig}\" \"${new_fname}\"" | tee -a rename.out;
+echo "    ..." | tee -a rename.out;
+mv "${orig}" "${new_fname}" \
+  && echo -e "        ... success\n" | tee -a rename.out \
+  || echo -e "        ... FAILURE\n" | tee -a rename.out
+'
+
+
+  1748390080_2025-05-27T175440-0600
+
+
+orig: ./Bodl_-_Bodleian-Library-MS-Laud-Misc-133_p32-209.png
+my_first: Bodl_-_Bodleian-Library-MS-Laud-Misc-133_
+my_end: .png
+my_second: 32
+my_unpad: 33
+my_num: 00033
+  Command will be:
+mv "./Bodl_-_Bodleian-Library-MS-Laud-Misc-133_p32-209.png" "Bodl_-_Bodleian-Library-MS-Laud-Misc-133_00033.png"
+    ...
+        ... success
+
+
+orig: ./Bodl_-_Bodleian-Library-MS-Laud-Misc-133_p33-215.png
+my_first: Bodl_-_Bodleian-Library-MS-Laud-Misc-133_
+my_end: .png
+
+### ...
+
+### ... OUTPUT ... ###
+
+### ...
+
+    ...
+        ... success
+
+
+orig: ./Bodl_-_Exeter-College-MS-5_p268-1618.png
+my_first: Bodl_-_Exeter-College-MS-5_
+my_end: .png
+my_second: 268
+my_unpad: 269
+my_num: 00269
+  Command will be:
+mv "./Bodl_-_Exeter-College-MS-5_p268-1618.png" "Bodl_-_Exeter-College-MS-5_00269.png"
+    ...
+        ... success
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ #  Went to get Julie
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ checksituation
+
+ Current date/time is
+Tue May 27 20:10:25 MDT 2025
+1748398225
+1748398225_2025-05-27T201025-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -not -iname "*.png"
+./b4_all_docs_pdfs_in_batch.lst
+./rename.out
+./fnames.lst
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ grep -i --failure rename.out | wc -l
+grep: unknown option -- failure
+Usage: grep [OPTION]... PATTERNS [FILE]...
+Try 'grep --help' for more information.
+0
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ #  Failure is not an option
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ grep -i failure rename.out | wc -l
+0
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ #  Now to rename the BnF ones
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@####################
+###########################################################
+###########################################################
+# Check for number of files from each PDF (search using
+# the bare, strip off the     "_[0-9]\{5\}[.][^.]\{2,5\}$"
+# (or, to be exact for here:  "_[0-9]\{5\}[.]png$")
+# and do  sort | uniq -c  (all in the converted_from_PDF)  
+###########################################################
+############$$$$$$$$$$$$$$$$$$$$$##########################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@$@$@#
+
+# STEP 2 (out of order - change later)
+
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png" | sed 's#^[.]/##g; s#_[0-9]\{5\}[.]png$##g' | sort | uniq -c
+    669 Bodl_-_Bodleian-Library-MS-Arch-B-b-10
+    655 Bodl_-_Bodleian-Library-MS-Arch-B-b-11
+    273 Bodl_-_Pembroke-College-PMB-MS-G-3-1-1
+    159 Bodl_-_Pembroke-College-PMB-MS-P-2-1
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ # Good stuff
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ find . -type f -iname "*.png" | sed 's#^[.]/##g; s#_[0-9]\{5\}[.]png$##g' | sort | uniq -c | awk '{sum += $1}; END {print sum}'
+1756
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ find . -type f -iname "*.png" | wc -l
+1756
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ #  Good.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@####################
+###########################################################
+###########################################################
+# Move in the BnF non-palette images 1 and 2
+###########################################################
+############$$$$$$$$$$$$$$$$$$$$$##########################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@$@$@#
+
+# STEP 4
+
+
+
+checksituation
+
+files_str=$(find . -type f -iname "*.png" | sed 's#^[.]/##g; s#_[0-9]\{5\}[.]png$##g' | sort | uniq | tr '\n' '|')
+
+echo "${files_str}" | tr '|' '\n'
+
+#  Note that the -iname patterns below might also start with 'France'
+
+find ./<maybe-dir> -type f -iname "BnF*what*ever*pattern*00003.png" # should get something
+
+find ./<maybe-dir> -type f -iname "BnF*what*ever*pattern*00002.png" # should be empty
+
+find ./<maybe-dir> -type f -iname "BnF*what*ever*pattern*00001.png" # should be empty
+
+## Copy, either the not-favored-but-definitely-should-be-used
+### 1 ###
+
+cp ../BnF_-_TITLE_00001.png BnF-BibArsenal_-_Ms-6039_00001.png
+
+cp ../BnF_-_TITLE_00002.png BnF-BibArsenal_-_Ms-6039_00002.png
+
+## or (what I prefer)
+### 2 ###
+
+cp ../BnF_-_TITLE_00002.png BnF-BibArsenal_-_Ms-6039_00001.png
+
+cp ../BnF_-_TITLE_00001.png BnF-BibArsenal_-_Ms-6039_00002.png
+
+      # equivalently
+
+cp ../BnF_-_TITLE_00001.png BnF-BibArsenal_-_Ms-6039_00002.png
+
+cp ../BnF_-_TITLE_00002.png BnF-BibArsenal_-_Ms-6039_00001.png
+
+
+
+################ FROM TERMINAL EXAMPLE ####################
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ echo "${files_str}" | tr '|' '\n'
+BnF-BibArsenal_-_Candide_Ms-3160
+BnF-BibArsenal_-_Ms-6039
+BnF-BibArsenal_-_Ms-8407
+BnF-BibArsenal_-_Ms-87
+BnF_-_Ms-Fra-24308
+BnF_-_Ms-Grec-2467
+BnF_-_Ms-Grec-338
+BnF_-_Ms-Heb-187
+BnF_-_Ms-Lat-17385
+BnF_-_Ms-Lat-17551
+BnF_-_Ms-Lat-17742
+BnF_-_Ms-Lat-18315
+BnF_-_Ms-Lat-18417
+BnF_-_Ms-Lat-18420
+BnF_-_Ms-Lat-18421
+BnF_-_Ms-Lat-18553
+BnF_-_Ms-Lat-18554
+BnF_-_Ms-Lat-3085A
+BnF_-_Ms-Supplmnt-Grec-1027
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-20
+England-Bodl-Christ-Church_-_MS-95
+England-Bodl_-_BodlLib_MS-Canon-Misc-575
+England-Bodl_-_BodlLib_MS-Duke-Humfrey-c-1
+England-Bodl_-_BodlLib_MS-Hamilton-45
+England-Bodl_-_BodlLib_MS-Hamilton-9
+England-Bodl_-_BodlLib_MS-Lat-th-d-18
+France-BibMunMetz_-_Ms-12324
+HLSbibFulda_-_Victor-Codex-100-Bonifatianus-1
+StaatsbibBamberg_-_Msc-Patr-5
+UniversiteitLeiden_-_LibriMissalis fragmentaBPL25_-_LowerResolution
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ find . -type f -iname "BnF*Arsenal*Ms-6039*00003.png"
+./BnF-BibArsenal_-_Ms-6039_00003.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ find . -type f -iname "BnF*Arsenal*Ms-6039*00002.png"
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ find . -type f -iname "BnF*Arsenal*Ms-6039*00001.png"
+
+##-------------------------------------------------------------------
+## EITHER
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ cp ../BnF_-_TITLE_00001.png BnF-BibArsenal_-_Ms-6039_00001.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ cp ../BnF_-_TITLE_00002.png BnF-BibArsenal_-_Ms-6039_00002.png
+
+##--------------------------------------------------------------------
+## OR
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ cp ../BnF_-_TITLE_00002.png BnF-BibArsenal_-_Ms-6039_00001.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ cp ../BnF_-_TITLE_00001.png BnF-BibArsenal_-_Ms-6039_00002.png
+
+##
+## END EITHER/OR
+##---------------------------------------------------------------------
+
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ echo "${files_str}" | tr '|' '\n'
+
+
+
+############# ANOTHER FROM-TERMINAL EXAMPLE ###############
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$ find . -type f -iname "BnF*Lat*17385*00003.png"
+./converted_from_PDF_-_now_to_jpeg/BnF_-_Ms-Lat-17385_00003.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$ find . -type f -iname "BnF*Lat*17385*00002.png"
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$ find . -type f -iname "BnF*Lat*17385*00001.png"
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$
+
+##-------------------------------------------------------------------
+## EITHER
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$ cp BnF_-_TITLE_00001.png converted_from_PDF_-_now_to_jpeg/BnF_-_Ms-Lat-17385_00001.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$ cp BnF_-_TITLE_00002.png converted_from_PDF_-_now_to_jpeg/BnF_-_Ms-Lat-17385_00002.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$
+
+##--------------------------------------------------------------------
+## OR
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$ cp BnF_-_TITLE_00001.png converted_from_PDF_-_now_to_jpeg/BnF_-_Ms-Lat-17385_00002.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$ cp BnF_-_TITLE_00002.png converted_from_PDF_-_now_to_jpeg/BnF_-_Ms-Lat-17385_00001.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$ ##
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$ 
+
+##
+## END EITHER/OR
+##---------------------------------------------------------------------
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$ echo "${files_str}" | tr '|' '\n'
+
+
+
+
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ history | tail -n 50
+ 1414  #  Went to get Julie
+ 1415  checksituation
+ 1416  #  Went to get Julie
+ 1417  find . -type f -not -iname "*.png"
+ 1418  grep -i --failure rename.out | wc -l
+ 1419  #  Failure is not an option
+ 1420  grep -i failure rename.out | wc -l
+ 1421  #  Now to rename the BnF ones
+ 1422  ##   Remember we did
+ 1423  # b4_file_list=$(find . -type f -iname "BnF*.png" | awk -F'/' '{print $NF}' | sed 's#_p[0-9]\+[-][0-9]\+[.][^.]\{2,5\}$##g' | sort | uniq | tr '\n' '|')
+ 1424  echo "${b4_file_list}" | tr '|' '\n'
+ 1425  find . -type f -iname "BnF*1371*00003.png"
+ 1426  find . -type f -iname "BnF*1371*00002.png"
+ 1427  find . -type f -iname "BnF*1371*00001.png"
+ 1428  ##-------------------------------------------------------------------
+ 1429  ## EITHER
+ 1430  # cp ../BnF_-_TITLE_00001.png BnF_-_Ms-Grec-1371-palimpsest_00001.png
+ 1431  # cp ../BnF_-_TITLE_00002.png BnF_-_Ms-Grec-1371-palimpsest_00002.png
+ 1432  ##  (Good for future previous 2, current, and next 2 as channels)
+ 1433  ##+ I prefer the other one, though
+ 1434  ##--------------------------------------------------------------------
+ 1435  ## OR
+ 1436  cp ../BnF_-_TITLE_00002.png BnF_-_Ms-Grec-1371-palimpsest_00001.png
+ 1437  cp ../BnF_-_TITLE_00001.png BnF_-_Ms-Grec-1371-palimpsest_00002.png
+ 1438  ##
+ 1439  ## END EITHER/OR
+ 1440  ##---------------------------------------------------------------------
+ 1441  find . -type f -iname "BnF*2089*00003.png"
+ 1442  find . -type f -iname "BnF*2089*00002.png"
+ 1443  find . -type f -iname "BnF*2089*00001.png"
+ 1444  cp ../BnF_-_TITLE_00002.png BnF_-_Ms-Grec-2089-palimpsest_00001.png
+ 1445  cp ../BnF_-_TITLE_00001.png BnF_-_Ms-Grec-2089-palimpsest_00002.png
+ 1446  echo "${b4_file_list}" | tr '|' '\n'
+ 1447  find . -type f -iname "BnF*2991*00003.png"
+ 1448  find . -type f -iname "BnF*2991*00002.png"
+ 1449  find . -type f -iname "BnF*2991*00001.png"
+ 1450  cp ../BnF_-_TITLE_00002.png BnF_-_Ms-Grec-2991_00001.png
+ 1451  cp ../BnF_-_TITLE_00001.png BnF_-_Ms-Grec-2991_00002.png
+ 1452  find . -type f -not -iname "*.png" | wc -l
+ 1453  find . -type f -not -iname "*.png"
+ 1454  ##mv rename.out ../rename_b4_
+ 1455  b4_ts="1748387542_2025-05-27T171222-0600"
+ 1456  mv rename.out ../rename_b4_${b4_ts}.out
+ 1457  mv fnames.lst ../fnames_b4_${b4_ts}.lst
+ 1458  find . -type d | wc -l
+ 1459  find . -type d
+ 1460  find . -type f | wc -l
+ 1461  find . -type f -iname "*.png"
+ 1462  history | tail -n 20
+ 1463  history | tail -n 50
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$
+
+
+
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@####################
+###########################################################
+###########################################################
+# Maybe split color, grayscale, (palette) (?) The same
+# conversion is done on all of them, but it might be
+# nice for keeping track (and having less processing at
+# one time) to do the split, anyway.
+###########################################################
+############$$$$$$$$$$$$$$$$$$$$$##########################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@$@$@#
+
+# STEP 5
+
+
+##  SKIP
+
+### IT
+#   FOR
+
+#   NOW
+
+##  !
+
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@##############
+#####################################################
+#####################################################
+# CHECK THE FORMATS FOR THE PNGs - PRE
+#####################################################
+############$$$$$$$$$$$$$$$$$$$$$####################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@#
+
+# STEP 6
+
+
+
+ttdate && time identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.png > ../b<batch-number>_all_png_format_info_formats_for_batch_${b<batch-number>_ts}.out && ttdate
+
+grep "PNG.*png" ../b<batch-number>_all_png_format_info_formats_for_batch_<the-unix-timestamp>.out | sort | uniq -c | wc -l
+
+grep "PNG.*png" ../b<batch-number>_all_png_format_info_formats_for_batch_<the-unix-timestamp>.out | sort | uniq -c
+
+----- COMMAND-LINE -----
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ ttdate && time identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.png > ../b3_all_png_format_info_formats_for_batch_${b3_ts}.out && ttdate
+1748553579_2025-05-29T151939-0600
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF-BibArsenal_-_TraductionDuCoranDePierreLeVenerable_Ms-1162-res_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF-BibArsenal_-_TraductionDuCoranDePierreLeVenerable_Ms-1162-res_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_AESOPUS_Ms-Grec-1310_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_AESOPUS_Ms-Grec-1310_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Horace_Ms-Latin-11312_bw_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Horace_Ms-Latin-11312_bw_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Horace_Ms-Latin-11312_color_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Horace_Ms-Latin-11312_color_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_MS-Grec-2991_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_MS-Grec-2991_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-Georgien-5_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-Georgien-5_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-Grec-487_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-Grec-487_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-Latin-12302_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-Latin-12302_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-Latin-12410_bw_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-Latin-12410_bw_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-Latin-12410_color_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-Latin-12410_color_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-Latin-2510_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-Latin-2510_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-Latin-619_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-Latin-619_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-NAL-1436_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-NAL-1436_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Publius_Papinius_Ms-Latin-8055_bw_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Publius_Papinius_Ms-Latin-8055_bw_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Publius_Papinius_Ms-Latin-8055_color_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Publius_Papinius_Ms-Latin-8055_color_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_ScriptaVariaHorace_Ms-Latin-7978_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_ScriptaVariaHorace_Ms-Latin-7978_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+
+real    15m6.513s
+user    10m1.780s
+sys     2m18.171s
+1748554485_2025-05-29T153445-0600
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ checksituation
+
+ Current date/time is
+Thu May 29 16:35:16 MDT 2025
+1748558116
+1748558116_2025-05-29T163516-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ grep "PNG.*png" ../b3_all_png_format_info_formats_for_batch_1748308719_2025-05-26T191839-0600.out | sort | uniq -c | wc -l
+3
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ grep "PNG.*png" ../b3_all_png_format_info_formats_for_batch_1748308719_2025-05-26T191839-0600.out | sort | uniq -c
+   1900 PNG Gray Grayscale png 8 gray
+      1 PNG sRGB Grayscale png 8 srgb
+   6164 PNG sRGB TrueColor png 8 srgb
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ #  All right. They'll all get the same conversion. Here goes.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$
+
+
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@##############
+#####################################################
+#####################################################
+# Time for the actual conversion
+#####################################################
+############$$$$$$$$$$$$$$$$$$$$$####################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@#
+
+# STEP 7
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ find . -type f -iname "*.png" | wc -l
+11816
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ grep "PNG.*png" ../b4_all_png_format_info_formats_for_batch_1748387542_2025-05-27T171222-0600.out | sort | uniq -c
+    775 PNG Gray Grayscale png 8 gray
+     17 PNG sRGB Grayscale png 8 srgb
+      3 PNG sRGB Palette png 8 srgb
+  11021 PNG sRGB TrueColor png 8 srgb
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ grep "PNG.*png" ../b4_all_png_format_info_formats_for_batch_1748387542_2025-05-27T171222-0600.out | sort | uniq -c | awk '{ sum += $1 }; END {print sum}'
+11816
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ echo "775+17+3+11021" | bc
+11816
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ #  Match
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@##############
+#####################################################
+#####################################################
+# Time for the actual conversion
+#####################################################
+############$$$$$$$$$$$$$$$$$$$$$####################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@#
+
+# STEP 7
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ # STEP 7
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ ttdate && time mogrify -format jpg -quality 92 -colorspace srgb -type truecolor *.png && ttdate
+1748583824_2025-05-29T234344-0600
+mogrify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-Grec-1371-palimpsest_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+mogrify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-Grec-1371-palimpsest_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+mogrify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-Grec-2089-palimpsest_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+mogrify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-Grec-2089-palimpsest_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+mogrify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-Grec-2991_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+mogrify: iCCP: profile 'icc': 0h: PCS illuminant is not D50 `BnF_-_Ms-Grec-2991_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+
+real    45m59.147s
+user    21m59.265s
+sys     6m4.811s
+1748586583_2025-05-30T002943-0600
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$
+
+
+
+
+
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@##############
+#####################################################
+#####################################################
+# Check the JPEG format details
+# Make sure we have the 00001 and 00002 for all
+# documents
+#####################################################
+############$$$$$$$$$$$$$$$$$$$$$####################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@#
+
+# STEP 8
+
+ttdate && time identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.jpg > ../b4_all_jpeg_format_info_formats_for_batch_${b4_ts}.out && ttdate
+
+grep JPEG ../b4_all_jpeg_format_info_formats_for_batch_1748387542_2025-05-27T171222-0600.out | sort | uniq -c
+
+find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | sed 's#_[0-9]\{5\}[.]png$##g' | sort | uniq > ../../b4_doc_fnames_checking_1_2_$(ttdate).lst
+
+while read -r line; do bare="${line}"; echo; echo "--------------------"; echo "${bare}"; echo "-----"; find /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/ -type f | grep "${bare}.*0000[12][.][^.]\{2,5\}$"; done < ../../b4_doc_fnames_checking_1_2_1748381715_2025-05-27T153515-0600.lst
+
+
+
+
+-----------------------------------------
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | sed 's#_[0-9]\{5\}[.]png$##g' | sort | uniq > ../../b2_doc_fnames_checking_1_2_png_$(ttdate).lst
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ wc -l < ../../b2_doc_fnames_checking_1_2_png_1748381715_2025-05-27T153515-0600.lst
+9
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ cat ../../b2_doc_fnames_checking_1_2_png_1748381715_2025-05-27T153515-0600.lst
+BnF-BibArsenal_-_Ms-6039
+BnF_-_Ms-Fra-24308
+BnF_-_Ms-Grec-338
+BnF_-_Ms-Lat-17385
+BnF_-_Ms-Lat-17551
+BnF_-_Ms-Lat-18315
+BnF_-_Ms-Lat-18417
+BnF_-_Ms-Lat-18421
+BnF_-_Ms-Lat-3085A
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ while read -r line; do bare="${line}"; echo; echo "--------------------"; echo "${bare}"; echo "-----"; find /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/ -type f | grep "${bare}.*0000[12][.][^.]\{2,5\}$"; done < ../../b2_doc_fnames_checking_1_2_png_1748381715_2025-05-27T153515-0600.lst | head
+
+--------------------
+BnF-BibArsenal_-_Ms-6039
+-----
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF-BibArsenal_-_Ms-6039_00001.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF-BibArsenal_-_Ms-6039_00001.png
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF-BibArsenal_-_Ms-6039_00002.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF-BibArsenal_-_Ms-6039_00002.png
+
+--------------------
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ while read -r line; do bare="${line}"; echo; echo "--------------------"; echo "${bare}"; echo "-----"; find /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/ -type f | grep "${bare}.*0000[12][.][^.]\{2,5\}$"; done < ../../b2_doc_fnames_checking_1_2_png_1748381715_2025-05-27T153515-0600.lst
+
+--------------------
+BnF-BibArsenal_-_Ms-6039
+-----
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF-BibArsenal_-_Ms-6039_00001.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF-BibArsenal_-_Ms-6039_00001.png
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF-BibArsenal_-_Ms-6039_00002.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF-BibArsenal_-_Ms-6039_00002.png
+
+--------------------
+BnF_-_Ms-Fra-24308
+-----
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Fra-24308_00001.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Fra-24308_00001.png
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Fra-24308_00002.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Fra-24308_00002.png
+
+--------------------
+BnF_-_Ms-Grec-338
+-----
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Grec-338_00001.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Grec-338_00001.png
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Grec-338_00002.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Grec-338_00002.png
+
+--------------------
+BnF_-_Ms-Lat-17385
+-----
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-17385_00001.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-17385_00001.png
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-17385_00002.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-17385_00002.png
+
+--------------------
+BnF_-_Ms-Lat-17551
+-----
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-17551_00001.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-17551_00001.png
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-17551_00002.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-17551_00002.png
+
+--------------------
+BnF_-_Ms-Lat-18315
+-----
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-18315_00001.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-18315_00001.png
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-18315_00002.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-18315_00002.png
+
+--------------------
+BnF_-_Ms-Lat-18417
+-----
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-18417_00001.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-18417_00001.png
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-18417_00002.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-18417_00002.png
+
+--------------------
+BnF_-_Ms-Lat-18421
+-----
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-18421_00001.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-18421_00001.png
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-18421_00002.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-18421_00002.png
+
+--------------------
+BnF_-_Ms-Lat-3085A
+-----
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-3085A_00001.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-3085A_00001.png
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-3085A_00002.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale/BnF_-_Ms-Lat-3085A_00002.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$
+
+###########################
+#  OR , less impressively
+###########################
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ find . -type f | grep "BnF.*0000[12][.]png"
+./BnF-BibArsenal_-_Ms-6039_00001.png
+./BnF-BibArsenal_-_Ms-6039_00002.png
+./BnF_-_Ms-Fra-24308_00001.png
+./BnF_-_Ms-Fra-24308_00002.png
+./BnF_-_Ms-Grec-338_00001.png
+./BnF_-_Ms-Grec-338_00002.png
+./BnF_-_Ms-Lat-17385_00001.png
+./BnF_-_Ms-Lat-17385_00002.png
+./BnF_-_Ms-Lat-17551_00001.png
+./BnF_-_Ms-Lat-17551_00002.png
+./BnF_-_Ms-Lat-18315_00001.png
+./BnF_-_Ms-Lat-18315_00002.png
+./BnF_-_Ms-Lat-18417_00001.png
+./BnF_-_Ms-Lat-18417_00002.png
+./BnF_-_Ms-Lat-18421_00001.png
+./BnF_-_Ms-Lat-18421_00002.png
+./BnF_-_Ms-Lat-3085A_00001.png
+./BnF_-_Ms-Lat-3085A_00002.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ ######## THEN DO AGAIN WHEN THE JPEGS ARE THERE #######
+
+
+
+
+
+
+
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@##############
+#####################################################
+#####################################################
+# Do final checks on the format details, then do
+# the cool big moves into the final jpeg and the
+# backup png
+#####################################################
+############$$$$$$$$$$$$$$$$$$$$$####################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@#
+
+# STEP 9
+
+
+
+## JPEGS
+#  Change meta_jpeg_fname, and DEFINITELY change
+#+ what's fed into the while loop ( 'doc_fnames' )
+
+
+
+
+cp ../b4_doc_fnames_checking_1_2_1748619995_2025-05-30T094635-0600.lst ../b4_doc_fnames_for_big_moves_1748619995_2025-05-30T094635-0600.lst
+
+meta_jpeg_fname="moving_b4_jpegs_1748387542_2025-05-27T171222-0600.sh"; \
+touch "${meta_jpeg_fname}"; >"${meta_jpeg_fname}"; \
+while read -r line; do \
+  bare="${line}"; \
+  meta_jpeg_fname="moving_b4_jpegs_1748387542_2025-05-27T171222-0600.sh"; \
+  echo >> "${meta_jpeg_fname}"; \
+  echo "echo" >> "${meta_jpeg_fname}"; \
+  dir2be=\
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
+"new_final_jpeg_to_use/${bare}/"; \
+  echo "echo -e \" Creating directory\\n\\\"${dir2be}\\\"\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo "mkdir -p \"${dir2be}\" "\
+"&& echo \"      ... success creating dir\" "\
+"|| echo \"      ... FAILURE creating dir\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo "echo \" Now moving jpeg files.\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo "mv \"$(pwd)/${bare}\"*.jpg \"${dir2be}\" "\
+"&& echo \"      ... success moving jpegs\" "\
+"|| echo \"      ... FAILURE moving jpegs\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo >> "${meta_jpeg_fname}"; \
+done < ../b4_doc_fnames_for_big_moves_1748619995_2025-05-30T094635-0600.lst
+
+
+meta_jpeg_fname="moving_b5_jpegs_1748618510_2025-05-30T092150-0600.sh"; \
+touch "${meta_jpeg_fname}"; >"${meta_jpeg_fname}"; \
+while read -r line; do \
+  bare="${line}"; \
+  meta_jpeg_fname="moving_b5_jpegs_1748618510_2025-05-30T092150-0600.sh"; \
+  echo >> "${meta_jpeg_fname}"; \
+  echo "echo" >> "${meta_jpeg_fname}"; \
+  dir2be=\
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
+"new_final_jpeg_to_use/${bare}/"; \
+  echo "echo -e \" Creating directory\\n\\\"${dir2be}\\\"\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo "mkdir -p \"${dir2be}\" "\
+"&& echo \"      ... success creating dir\" "\
+"|| echo \"      ... FAILURE creating dir\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo "echo \" Now moving jpeg files.\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo "mv \"$(pwd)/${bare}\"*.jpg \"${dir2be}\" "\
+"&& echo \"      ... success moving jpegs\" "\
+"|| echo \"      ... FAILURE moving jpegs\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo >> "${meta_jpeg_fname}"; \
+done < ../b5_doc_fnames_for_big_moves_1748618510_2025-05-30T092150-0600.lst
+
+
+
+
+
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ cp moving_b2_gs_jpegs_1748383614_2025-05-27T160654-0600.sh mbgj_bak                                    
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ vim moving_b2_gs_jpegs_1748383614_2025-05-27T160654-0600.sh                                            
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ diff moving_b2_gs_jpegs_1748383614_2025-05-27T160654-0600.sh mbgj_bak
+1d0
+< #!/usr/bin/env bash
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ #  Just putting on the shebang line.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ chmod a+x moving_b2_gs_jpegs_1748383614_2025-05-27T160654-0600.sh
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ ./moving_b2_gs_jpegs_1748383614_2025-05-27T160654-0600.sh 2>&1 | tee ../../big_b2_gs_jpeg_move_1748383614_2025-05-27T160654-0600.out
+
+
+
+
+## PNGS
+#  Change meta_png_fname, and DEFINITELY change
+#+ what's fed into the while loop ( 'doc_fnames' )
+
+
+
+
+###4444444444444444444444444444444444444
+
+meta_png_fname="moving_b4_pngs_1748387542_2025-05-27T171222-0600.sh"; \
+touch "${meta_png_fname}"; >"${meta_png_fname}"; \
+while read -r line; do \
+  bare="${line}"; \
+  meta_png_fname="moving_b4_pngs_1748387542_2025-05-27T171222-0600.sh";
+  echo >> "${meta_png_fname}";
+  echo "echo" >> "${meta_png_fname}";
+  dir2be=\
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
+"new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/${bare}/"; \
+  echo "echo -e \" Creating directory\\n\\\"${dir2be}\\\"\"" >> \
+    "${meta_png_fname}"; \
+  echo "mkdir -p \"${dir2be}\" "\
+"&& echo \"      ... success creating dir\" "\
+"|| echo \"      ... FAILURE creating dir\"" >> \
+    "${meta_png_fname}"; \
+  echo "echo \" Now moving png files.\"" >> \
+    "${meta_png_fname}"; \
+  echo "mv \"$(pwd)/${bare}\"*.png \"${dir2be}\" "\
+"&& echo \"      ... success moving pngs\" "\
+"|| echo \"      ... FAILURE moving pngs\"" >> \
+    "${meta_png_fname}"; \
+  echo >> "${meta_png_fname}";
+done < ../b4_doc_fnames_for_big_moves_1748619995_2025-05-30T094635-0600.lst
+
+
+#####5555555555555555555555555555555555555555555555555555555
+
+meta_png_fname="moving_b5_pngs_1748618510_2025-05-30T092150-0600.sh"; \
+touch "${meta_png_fname}"; >"${meta_png_fname}"; \
+while read -r line; do \
+  bare="${line}"; \
+  meta_png_fname="moving_b5_pngs_1748618510_2025-05-30T092150-0600.sh";
+  echo >> "${meta_png_fname}";
+  echo "echo" >> "${meta_png_fname}";
+  dir2be=\
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
+"new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/${bare}/"; \
+  echo "echo -e \" Creating directory\\n\\\"${dir2be}\\\"\"" >> \
+    "${meta_png_fname}"; \
+  echo "mkdir -p \"${dir2be}\" "\
+"&& echo \"      ... success creating dir\" "\
+"|| echo \"      ... FAILURE creating dir\"" >> \
+    "${meta_png_fname}"; \
+  echo "echo \" Now moving png files.\"" >> \
+    "${meta_png_fname}"; \
+  echo "mv \"$(pwd)/${bare}\"*.png \"${dir2be}\" "\
+"&& echo \"      ... success moving pngs\" "\
+"|| echo \"      ... FAILURE moving pngs\"" >> \
+    "${meta_png_fname}"; \
+  echo >> "${meta_png_fname}";
+done < ../b5_doc_fnames_for_big_moves_1748618510_2025-05-30T092150-0600.lst
+
+
+
+
+
+---------------------- COMMAND LINE FOR b2 ---------------------
+---------------------- NOT INCLUDING the big command above ----
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ cp moving_b2_gs_pngs_1748383614_2025-05-27T160654-0600.sh mbgp_bak
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ vim moving_b2_gs_pngs_1748383614_2025-05-27T160654-0600.sh
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ diff mbgp_bak moving_b2_gs_pngs_1748383614_2025-05-27T160654-0600.sh
+0a1
+> #!/usr/bin/env bash
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ # Just added in the shebang
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ rm mbgp_bak
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ chmod a+x moving_b2_gs_pngs_1748383614_2025-05-27T160654-0600.sh
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ ./moving_b2_gs_pngs_1748383614_2025-05-27T160654-0600.sh 2>&1 | tee ../../big_b2_gs_png_move_1748383614_2025-05-27T160654-0600.out
+
+ Creating directory
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/BnF-BibArsenal_-_Ms-6039/"
+      ... success creating dir
+ Now moving png files.
+      ... success moving pngs
+
+ Creating directory
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/BnF_-_Ms-Fra-24308/"
+      ... success creating dir
+ Now moving png files.
+      ... success moving pngs
+
+ Creating directory
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/BnF_-_Ms-Grec-338/"
+      ... success creating dir
+ Now moving png files.
+      ... success moving pngs
+
+ Creating directory
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/BnF_-_Ms-Lat-17385/"
+      ... success creating dir
+ Now moving png files.
+      ... success moving pngs
+
+ Creating directory
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/BnF_-_Ms-Lat-17551/"
+      ... success creating dir
+ Now moving png files.
+      ... success moving pngs
+
+ Creating directory
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/BnF_-_Ms-Lat-18315/"
+      ... success creating dir
+ Now moving png files.
+      ... success moving pngs
+
+ Creating directory
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/BnF_-_Ms-Lat-18417/"
+      ... success creating dir
+ Now moving png files.
+      ... success moving pngs
+
+ Creating directory
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/BnF_-_Ms-Lat-18421/"
+      ... success creating dir
+ Now moving png files.
+      ... success moving pngs
+
+ Creating directory
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/BnF_-_Ms-Lat-3085A/"
+      ... success creating dir
+ Now moving png files.
+      ... success moving pngs
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg/grayscale
+$ #  I could check the OUT file, but I can see there
+  #+ are no failures.
+
+----------------- COMMAND LINE FOR P5 WITH EVERYTHING ---------
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ ttdate && time identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.jpg > ../b5_all_jpeg_format_info_formats_for_batch_${b5_ts}.out && ttdate
+1748664837_2025-05-30T221357-0600
+
+real    1m19.052s
+user    2m28.703s
+sys     0m21.875s
+1748664916_2025-05-30T221516-0600
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ grep JPEG ../b4_all_jpeg_format_info_formats_for_batch_1748387542_2025-05-27T171222-0600.out | sort | uniq -c | wc -l
+2
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ grep JPEG ../b4_all_jpeg_format_info_formats_for_batch_1748387542_2025-05-27T171222-0600.out | sort | uniq -c
+    792 JPEG sRGB Grayscale jpg 8 srgb
+  11024 JPEG sRGB TrueColor jpg 8 srgb
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ grep JPEG ../b5_all_jpeg_format_info_formats_for_batch_1748618510_2025-05-30T092150-0600.out | sort | uniq -c | wc -l
+2
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ grep JPEG ../b5_all_jpeg_format_info_formats_for_batch_1748618510_2025-05-30T092150-0600.out | sort | uniq -c
+      2 JPEG sRGB Grayscale jpg 8 srgb
+   1754 JPEG sRGB TrueColor jpg 8 srgb
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | sed 's#_[0-9]\{5\}[.]png$##g' | sort | uniq > ../../b5_doc_fnames_for_big_moves_${b5_ts}.lst
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ stat ../../b5_doc_fnames_for_big_moves_1748618510_2025-05-30T092150-0600.lst
+  File: ../../b5_doc_fnames_for_big_moves_1748618510_2025-05-30T092150-0600.lst
+  Size: 154             Blocks: 1          IO Block: 65536  regular file
+Device: 34409,44143     Inode: 56013520366084315  Links: 1
+Access: (0764/-rwxrw-r--)  Uid: (197609/   Anast)   Gid: (197609/   Anast)
+Access: 2025-05-30 22:39:45.616154000 -0600
+Modify: 2025-05-30 22:39:45.616154000 -0600
+Change: 2025-05-30 22:39:45.616154000 -0600
+ Birth: 2025-05-30 22:39:45.571259200 -0600
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ mv ../../b5_doc_fnames_for_big_moves_1748618510_2025-05-30T092150-0600.lst ../
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@##############
+#####################################################
+#####################################################
+# Do final checks on the format details, then do
+# the cool big moves into the final jpeg and the
+# backup png
+#####################################################
+############$$$$$$$$$$$$$$$$$$$$$####################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@#
+
+# STEP 9
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ checksituation
+
+ Current date/time is
+Fri May 30 22:51:32 MDT 2025
+1748667092
+1748667092_2025-05-30T225132-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ #  Format checks were done just previous to this and look good.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ meta_jpeg_fname="moving_b5_jpegs_1748618510_2025-05-30T092150-0600.sh"; \
+touch "${meta_jpeg_fname}"; >"${meta_jpeg_fname}"; \
+while read -r line; do \
+  bare="${line}"; \
+  meta_jpeg_fname="moving_b5_jpegs_1748618510_2025-05-30T092150-0600.sh"; \
+  echo >> "${meta_jpeg_fname}"; \
+  echo "echo" >> "${meta_jpeg_fname}"; \
+  dir2be=\
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
+"new_final_jpeg_to_use/${bare}/"; \
+  echo "echo -e \" Creating directory\\n\\\"${dir2be}\\\"\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo "mkdir -p \"${dir2be}\" "\
+"&& echo \"      ... success creating dir\" "\
+"|| echo \"      ... FAILURE creating dir\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo "echo \" Now moving jpeg files.\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo "mv \"$(pwd)/${bare}\"*.jpg \"${dir2be}\" "\
+"&& echo \"      ... success moving jpegs\" "\
+"|| echo \"      ... FAILURE moving jpegs\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo >> "${meta_jpeg_fname}"; \
+done < ../b5_doc_fnames_for_big_moves_1748618510_2025-05-30T092150-0600.lst
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ cp moving_b5_jpegs_1748618510_2025-05-30T092150-0600.sh mbj_bak
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ vim moving_b5_jpegs_1748618510_2025-05-30T092150-0600.sh
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ diff moving_b5_jpegs_1748618510_2025-05-30T092150-0600.sh mbj_bak
+1d0
+< #!/usr/bin/env bash
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ chmod a+x moving_b5_jpegs_1748618510_2025-05-30T092150-0600.sh
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ ./moving_b5_jpegs_1748618510_2025-05-30T092150-0600.sh 2>&1 | tee ../big_b2_jpeg_move_1748618510_2025-05-30T092150-0600.out
+
+ Creating directory
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/Bodl_-_Bodleian-Library-MS-Arch-B-b-10/"
+      ... success creating dir
+ Now moving jpeg files.
+      ... success moving jpegs
+
+ Creating directory
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/Bodl_-_Bodleian-Library-MS-Arch-B-b-11/"
+      ... success creating dir
+ Now moving jpeg files.
+      ... success moving jpegs
+
+ Creating directory
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/Bodl_-_Pembroke-College-PMB-MS-G-3-1-1/"
+      ... success creating dir
+ Now moving jpeg files.
+      ... success moving jpegs
+
+ Creating directory
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/Bodl_-_Pembroke-College-PMB-MS-P-2-1/"
+      ... success creating dir
+ Now moving jpeg files.
+      ... success moving jpegs
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ #  Nice with only four documents.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ rm mbj_bak
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ #  Now for the pngs
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ find . -type f -iname "*.jpg" | wc -l
+0
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ find . -type f -iname "*.png" | wc -l
+1756
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ find . -type f -not -iname "*.png" | wc -l
+3
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ find . -type f -not -iname "*.png"
+./.moving_b5_jpegs_1748618510_2025-05-30T092150-0600.sh.un~
+./moving_b5_jpegs_1748618510_2025-05-30T092150-0600.sh
+./moving_b5_jpegs_1748618510_2025-05-30T092150-0600.sh~
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ checksituation
+
+ Current date/time is
+Fri May 30 23:00:17 MDT 2025
+1748667617
+1748667617_2025-05-30T230017-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ meta_png_fname="moving_b5_pngs_1748618510_2025-05-30T092150-0600.sh"; \
+touch "${meta_png_fname}"; >"${meta_png_fname}"; \
+while read -r line; do \
+  bare="${line}"; \
+  meta_png_fname="moving_b5_pngs_1748618510_2025-05-30T092150-0600.sh";
+  echo >> "${meta_png_fname}";
+  echo "echo" >> "${meta_png_fname}";
+  dir2be=\
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
+"new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/${bare}/"; \
+  echo "echo -e \" Creating directory\\n\\\"${dir2be}\\\"\"" >> \
+    "${meta_png_fname}"; \
+  echo "mkdir -p \"${dir2be}\" "\
+"&& echo \"      ... success creating dir\" "\
+"|| echo \"      ... FAILURE creating dir\"" >> \
+    "${meta_png_fname}"; \
+  echo "echo \" Now moving png files.\"" >> \
+    "${meta_png_fname}"; \
+  echo "mv \"$(pwd)/${bare}\"*.png \"${dir2be}\" "\
+"&& echo \"      ... success moving pngs\" "\
+"|| echo \"      ... FAILURE moving pngs\"" >> \
+    "${meta_png_fname}"; \
+  echo >> "${meta_png_fname}";
+done < ../b5_doc_fnames_for_big_moves_1748618510_2025-05-30T092150-0600.lst
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ cp moving_b5_pngs_1748618510_2025-05-30T092150-0600.sh mbp_bak
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ vim moving_b5_pngs_1748618510_2025-05-30T092150-0600.sh
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ diff moving_b5_pngs_1748618510_2025-05-30T092150-0600.sh mbp_bak
+1d0
+< #!/usr/bin/env bash
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ rm mbp_bak
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ chmod a+x moving_b5_pngs_1748618510_2025-05-30T092150-0600.sh
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ ./moving_b5_pngs_1748618510_2025-05-30T092150-0600.sh 2>&1 | tee ../big_b5_png_move_1748618510_2025-05-30T092150-0600.out
+
+ Creating directory
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/Bodl_-_Bodleian-Library-MS-Arch-B-b-10/"
+      ... success creating dir
+ Now moving png files.
+      ... success moving pngs
+
+ Creating directory
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/Bodl_-_Bodleian-Library-MS-Arch-B-b-11/"
+      ... success creating dir
+ Now moving png files.
+      ... success moving pngs
+
+ Creating directory
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/Bodl_-_Pembroke-College-PMB-MS-G-3-1-1/"
+      ... success creating dir
+ Now moving png files.
+      ... success moving pngs
+
+ Creating directory
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/Bodl_-_Pembroke-College-PMB-MS-P-2-1/"
+      ... success creating dir
+ Now moving png files.
+      ... success moving pngs
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ #  Moving the PNGs always takes longer than moving the JPEGs.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ #+ I wonder why.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$ checksituation
+
+ Current date/time is
+Fri May 30 23:05:48 MDT 2025
+1748667948
+1748667948_2025-05-30T230548-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_rename_png
+$
+
+
+
+
+
+
+
+
+
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@##############
+#####################################################
+#####################################################
+# Clean up extra logfiles, etc., moving them to a
+# directory where they can be referenced if 
+# necessary.
+#####################################################
+############$$$$$$$$$$$$$$$$$$$$$####################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@#
+
+# STEP 10
+
+
+##  See previous logfiles (especially b3) for details.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ find . -type f | wc -l
+8
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ lh
+total 5.9M
+drwxrwx---+ 1 Anast Anast    0 May 30 10:31 .
+drwxrwx---+ 1 Anast Anast    0 May 30 12:32 ..
+-rwxrw-r--+ 1 Anast Anast  523 May 30 10:11 .moving_b4_jpegs_1748387542_2025-05-27T171222-0600.sh.un~
+-rwxrw-r--+ 1 Anast Anast  523 May 30 10:24 .moving_b4_pngs_1748387542_2025-05-27T171222-0600.sh.un~
+-rwxrw-r--+ 1 Anast Anast 1.1K May 27 17:16 b4_all_docs_pdfs_in_batch.lst
+-rwxrw-r--+ 1 Anast Anast 7.3K May 30 10:31 big_b4_png_move_1748387542_2025-05-27T171222-0600.out
+-rwxrwxr-x+ 1 Anast Anast  22K May 30 10:11 moving_b4_jpegs_1748387542_2025-05-27T171222-0600.sh
+-rwxrw-r--+ 1 Anast Anast  22K May 30 10:00 moving_b4_jpegs_1748387542_2025-05-27T171222-0600.sh~
+-rwxrwxr-x+ 1 Anast Anast  25K May 30 10:24 moving_b4_pngs_1748387542_2025-05-27T171222-0600.sh
+-rwxrw-r--+ 1 Anast Anast  25K May 30 10:21 moving_b4_pngs_1748387542_2025-05-27T171222-0600.sh~
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ rm ./*~
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ rm ./.*~
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ lh
+total 5.9M
+drwxrwx---+ 1 Anast Anast    0 May 30 13:22 .
+drwxrwx---+ 1 Anast Anast    0 May 30 12:32 ..
+-rwxrw-r--+ 1 Anast Anast 1.1K May 27 17:16 b4_all_docs_pdfs_in_batch.lst
+-rwxrw-r--+ 1 Anast Anast 7.3K May 30 10:31 big_b4_png_move_1748387542_2025-05-27T171222-0600.out
+-rwxrwxr-x+ 1 Anast Anast  22K May 30 10:11 moving_b4_jpegs_1748387542_2025-05-27T171222-0600.sh
+-rwxrwxr-x+ 1 Anast Anast  25K May 30 10:24 moving_b4_pngs_1748387542_2025-05-27T171222-0600.sh
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ rm b4_all_docs_pdfs_in_batch.lst
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ mv ./*.* ..
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ lh
+total 24K
+drwxrwx---+ 1 Anast Anast 0 May 30 13:23 .
+drwxrwx---+ 1 Anast Anast 0 May 30 13:23 ..
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@##############
+#####################################################
+#####################################################
+# Check to only do new PDFs -- pre-game
+#####################################################
+############$$$$$$$$$$$$$$$$$$$$$####################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@#
+
+# STEP -1
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ cd ../converted_from_PDF
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ lh
+total 12K
+drwxrwx---+ 1 Anast Anast 0 May 27 21:01 .
+drwxrwx---+ 1 Anast Anast 0 May 29 21:40 ..
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../../new_
+new_-_folder_for_not-yet-ready_new_imgs/
+new_final_jpeg_to_use/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../../new_
+new_-_folder_for_not-yet-ready_new_imgs/
+new_final_jpeg_to_use/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../../new_
+new_-_folder_for_not-yet-ready_new_imgs/
+new_final_jpeg_to_use/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | wc -l
+26064
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../../new_final_jpeg_to_use/ -type f | wc -l
+26064
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | grep -v "_[0-9]\{5\}[.]jpg" | wc -l
+6
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | grep -v "_[0-9]\{5\}[.]jpg"
+../../new_final_jpeg_to_use/bbs/280.jpg
+../../new_final_jpeg_to_use/bbs/FamiliySearch_-_DGS004506391-00007.jpg
+../../new_final_jpeg_to_use/bbs/FamilySearch_-_DGS004382518_009595.jpg
+../../new_final_jpeg_to_use/bbs/FamilySearch_-_DGS005136404_000104.jpg
+../../new_final_jpeg_to_use/bbs/FamilySearch_-_DGS008342008_1111.jpg
+../../new_final_jpeg_to_use/bbs_before_but_added_to_annotated/FamilySearch_-_DGS008268002_00680_mbr.jpg
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ mv ../../new_final_jpeg_to_use/bbs_before_but_added_to_annotated/FamilySearch_-_DGS008268002_00680_mbr.jpg ../../..
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ mv ../../new_final_jpeg_to_use/bbs/280.jpg ../../..
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ mv ../../new_final_jpeg_to_use/bbs/FamiliySearch_-_DGS004506391-00007.jpg ../../new_final_jpeg_to_use/bbs/FamiliySearch_-_DGS
+Display all 138 possibilities? (y or n)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ mv ../../new_final_jpeg_to_use/bbs/FamiliySearch_-_DGS004506391-00007.jpg ../../new_final_jpeg_to_use/bbs/FamiliySearch_-_DGS004506391_00007.jpg
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ ## mv ../../new_final_jpeg_to_use/bbs/FamilySearch_-_DGS004382518_009595.jpg ../../new_final_jpeg_to_use/bbs/FamilySearch_-_DGS004382518_009595.jpg
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ #  Looking at it on FamilySearch
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ ##  By the way, I'm checking all the filenames that have been converted
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ ##+ before doing the next batch of PDFs so as not to redo things. The
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ ##+ FamilySearch ones won't come from PDF, but I might as well fix the
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ ##+ problems, now.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ mv ../../new_final_jpeg_to_use/bbs/FamilySearch_-_DGS004382518_009595.jpg ../../../_FIND_FamilySearch_-_DGS004382518_009595.jpg
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ mv ../../new_final_jpeg_to_use/bbs/FamilySearch_-_DGS005136404_000104.jpg ../../new_final_jpeg_to_use/bbs/FamilySearch_-_DGS005136404_00104.jpg
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ mv ../../new_final_jpeg_to_use/bbs/FamilySearch_-_DGS008342008_1111.jpg ../../new_final_jpeg_to_use/bbs/FamilySearch_-_DGS008342008_01111.jpg
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | grep -v "_[0-9]\{5\}[.]jpg"
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | wc -l
+26061
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | awk -F'/' '{print $NF}' | sed 's#_[0-9]\{5\}[.]jpg##g' | head
+BavarianStateLibrary-LOC_-_ArmenianGospelBook_BSB-Cod-armen-1-and-wdl_18-39-6
+BavarianStateLibrary-LOC_-_ArmenianGospelBook_BSB-Cod-armen-1-and-wdl_18-39-6
+BavarianStateLibrary-LOC_-_ArmenianGospelBook_BSB-Cod-armen-1-and-wdl_18-39-6
+BavarianStateLibrary-LOC_-_ArmenianGospelBook_BSB-Cod-armen-1-and-wdl_18-39-6
+BavarianStateLibrary-LOC_-_ArmenianGospelBook_BSB-Cod-armen-1-and-wdl_18-39-6
+BavarianStateLibrary-LOC_-_ArmenianGospelBook_BSB-Cod-armen-1-and-wdl_18-39-6
+BavarianStateLibrary-LOC_-_ArmenianGospelBook_BSB-Cod-armen-1-and-wdl_18-39-6
+BavarianStateLibrary-LOC_-_ArmenianGospelBook_BSB-Cod-armen-1-and-wdl_18-39-6
+BavarianStateLibrary-LOC_-_ArmenianGospelBook_BSB-Cod-armen-1-and-wdl_18-39-6
+BavarianStateLibrary-LOC_-_ArmenianGospelBook_BSB-Cod-armen-1-and-wdl_18-39-6
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | awk -F'/' '{print $NF}' | sed 's#_[0-9]\{5\}[.]jpg##g' | sort | uniq | head
+BavarianStateLibrary-LOC_-_ArmenianGospelBook_BSB-Cod-armen-1-and-wdl_18-39-6
+BnF-BibArsenal_-_Candide_Ms-3160
+BnF-BibArsenal_-_Ms-6039
+BnF-BibArsenal_-_Ms-8407
+BnF-BibArsenal_-_Ms-87
+BnF-BibArsenal_-_TraductionDuCoranDePierreLeVenerable_Ms-1162-res
+BnF_-_AESOPUS_Ms-Grec-1310
+BnF_-_Breviarium_Alarici_Ms-Lat-4404
+BnF_-_Horace_Ms-Latin-11312_bw
+BnF_-_Horace_Ms-Latin-11312_color
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | awk -F'/' '{print $NF}' | sed 's#_[0-9]\{5\}[.]jpg##g' | sort | uniq | wc -l
+396
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | awk -F'/' '{print $NF}' | sed 's#_[0-9]\{5\}[.]jpg##g' | sort | uniq > ../../fnames_before_new_b5_conversion_$(ttdate).lst
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ wc -l ../../fnames_before_new_b5_conversion_1748578533_2025-05-29T221533-0600.lst
+396 ../../fnames_before_new_b5_conversion_1748578533_2025-05-29T221533-0600.lst
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../converted_from_PDF_-_now_to_jpeg/ | awk -F'.' '{print $NF}' | sort | uniq | wc -l
+3
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../converted_from_PDF_-_now_to_jpeg/ | awk -F'.' '{print $NF}' | sort | uniq
+/converted_from_PDF_-_now_to_jpeg/
+lst
+png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../converted_from_PDF_-_now_to_jpeg/ -type f | awk -F'.' '{print $NF}' | sort | uniq
+lst
+png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../converted_from_PDF_-_now_to_jpeg/ -type f | awk -F'.' '{print $NF}' | sort | uniq -c
+      1 lst
+  11816 png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../converted_from_PDF_-_now_to_jpeg/ -type f -iname "*.png" | awk -F'/' '{print $NF}' | sed 's#_[0-9]\{\5}[.][^.]\{2,5\}$##g' | sort | uniq -c | wc -l
+sed: -e expression #1, char 31: Invalid content of \{\}
+0
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../converted_from_PDF_-_now_to_jpeg/ -type f -iname "*.png" | awk -F'/' '{print $NF}' | sed 's#_[0-9]\{5\}[.][^.]\{2,5\}$##g' | sort | uniq -c | wc -l
+29
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../converted_from_PDF_-_now_to_jpeg/ -type f -iname "*.png" | awk -F'/' '{print $NF}' | sed 's#_[0-9]\{5\}[.][^.]\{2,5\}$##g' | sort | uniq >> ../../fnames_before_new_b5_conversion_1748578533_2025-05-29T221533-0600.lst
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ wc -l ../../fnames_before_new_b5_conversion_1748578533_2025-05-29T221533-0600.lst
+425 ../../fnames_before_new_b5_conversion_1748578533_2025-05-29T221533-0600.lst
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ sort ../../fnames_before_new_b5_conversion_1748578533_2025-05-29T221533-0600.lst | uniq | wc -l
+425
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ #  Wow, we didn't redo anything
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../new_
+new_final-close_images_png_rgb_24/
+new_to_convert_-_no_split_yet/
+new_to_convert_-_tif_and_other_nonjpgpng/
+new_to_convert_PDF/
+new_to_convert_encode_png/
+new_to_convert_jpeg/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../new_to_convert_PDF/ -type f | wc -l
+33
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../new_to_convert_PDF/ -type f -iname "*.pdf" | wc -l
+33
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../new_to_convert_PDF/ -type f -iname "*.pdf" | awk -F'/' '
+> ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../new_to_convert_PDF/ -type f -iname "*.pdf" | awk -F'/' '{print $NF}' | sort | wc -l
+33
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../new_to_convert_PDF/ -type f -iname "*.pdf" | awk -F'/' '{print $NF}' | sort
+BnF_-_Ms-Grec-1371-palimpsest.pdf
+BnF_-_Ms-Grec-2089-palimpsest.pdf
+BnF_-_Ms-Grec-2991.pdf
+Bodl_-_Bodleian-Library-MS-Arch-B-b-10.pdf
+Bodl_-_Bodleian-Library-MS-Arch-B-b-11.pdf
+Bodl_-_Bodleian-Library-MS-Broxb-84-3.pdf
+Bodl_-_Bodleian-Library-MS-Canon-Class-Lat-274.pdf
+Bodl_-_Bodleian-Library-MS-Douce-18.pdf
+Bodl_-_Bodleian-Library-MS-Douce-6.pdf
+Bodl_-_Bodleian-Library-MS-Germ-d-4.pdf
+Bodl_-_Bodleian-Library-MS-Hamilton-12.pdf
+Bodl_-_Bodleian-Library-MS-Hamilton-2.pdf
+Bodl_-_Bodleian-Library-MS-Hamilton-33.pdf
+Bodl_-_Bodleian-Library-MS-Hamilton-40.pdf
+Bodl_-_Bodleian-Library-MS-Hamilton-55.pdf
+Bodl_-_Bodleian-Library-MS-Lat-liturg-d-38.pdf
+Bodl_-_Bodleian-Library-MS-Lat-th-e-23.pdf
+Bodl_-_Bodleian-Library-MS-Laud-Misc-107.pdf
+Bodl_-_Bodleian-Library-MS-Laud-Misc-133.pdf
+Bodl_-_Bodleian-Library-MS-Laud-Misc-183-2.pdf
+Bodl_-_Bodleian-Library-MS-Laud-Misc-626.pdf
+Bodl_-_Bodleian-Library-MS-Lyell-85.pdf
+Bodl_-_Christ-Church-MS-89.pdf
+Bodl_-_Exeter-College-MS-3.pdf
+Bodl_-_Exeter-College-MS-5.pdf
+Bodl_-_Pembroke-College-PMB-MS-G-3-1-1.pdf
+Bodl_-_Pembroke-College-PMB-MS-P-2-1.pdf
+Bodl_-_Queen-s-College-MS-305.pdf
+Bodl_-_Queen-s-College-MS-319.pdf
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-12.pdf
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-19.pdf
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-3.pdf
+France-StYrieixLaPercheBibMun_-_BibleDeSaintYrieix_Ms-15-X-1948.pdf
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../new_to_convert_PDF/ -type f -iname "*.pdf" | awk -F'/' '{print $NF}' | sed 's#[.]pdf$##g' | sort | head
+BnF_-_Ms-Grec-1371-palimpsest
+BnF_-_Ms-Grec-2089-palimpsest
+BnF_-_Ms-Grec-2991
+Bodl_-_Bodleian-Library-MS-Arch-B-b-10
+Bodl_-_Bodleian-Library-MS-Arch-B-b-11
+Bodl_-_Bodleian-Library-MS-Broxb-84-3
+Bodl_-_Bodleian-Library-MS-Canon-Class-Lat-274
+Bodl_-_Bodleian-Library-MS-Douce-18
+Bodl_-_Bodleian-Library-MS-Douce-6
+Bodl_-_Bodleian-Library-MS-Germ-d-4
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../new_to_convert_PDF/ -type f -iname "*.pdf" | awk -F'/' '{print $NF}' | sed 's#[.]pdf$##g' | sort > ../../ fnames_pdf_checking_dups_before_conversion_1748578533_2025-05-29T221533-0600.lst
+-bash: ../../: Is a directory
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find ../new_to_convert_PDF/ -type f -iname "*.pdf" | awk -F'/' '{print $NF}' | sed 's#[.]pdf$##g' | sort > ../../fnames_pdf_checking_dups_before_conversion_1748578533_2025-05-29T221533-0600.lst
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ comm -12 ../../fnames_before_new_b5_conversion_1748578533_2025-05-29T221533-0600.lst ../../fnames_pdf_checking_dups_before_conversion_1748578533_2025-05-29T221533-0600.lst | wc -l
+comm: file 1 is not in sorted order
+comm: input is not in sorted order
+0
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ comm -12 <(sort ../../fnames_before_new_b5_conversion_1748578533_2025-05-29T221533-0600.lst) <(sort ../../fnames_pdf_checking_dups_before_conversion_1748578533_2025-05-29T221533-0600.lst) | wc -l
+29
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ comm -13 <(sort ../../fnames_before_new_b5_conversion_1748578533_2025-05-29T221533-0600.lst) <(sort ../../fnames_pdf_checking_dups_before_conversion_1748578533_2025-05-29T221533-0600.lst) | wc -l
+4
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ comm -13 <(sort ../../fnames_before_new_b5_conversion_1748578533_2025-05-29T221533-0600.lst) <(sort ../../fnames_pdf_checking_dups_before_conversion_1748578533_2025-05-29T221533-0600.lst)
+Bodl_-_Bodleian-Library-MS-Arch-B-b-10
+Bodl_-_Bodleian-Library-MS-Arch-B-b-11
+Bodl_-_Pembroke-College-PMB-MS-G-3-1-1
+Bodl_-_Pembroke-College-PMB-MS-P-2-1
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ #  Well, we can do four.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$
+
+
+
+
+
+
+
+
+
+
+

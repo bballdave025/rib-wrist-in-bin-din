@@ -1,0 +1,808 @@
+
+Anast@DESKTOP-O7KM5A5 ~
+$ date && date +'%s_%Y-%m-%dT%H%M%S%z'
+Thu May 22 15:57:49 MDT 2025
+1747951069_2025-05-22T155749-0600
+
+Anast@DESKTOP-O7KM5A5 ~
+$ cd /cygdrive/c/David/FamilySearch_Lots_of_Bindings/FamilySearch_Pre1800Bindings/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FamilySearch_Lots_of_Bindings/FamilySearch_Pre1800Bindings
+$ identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.jpg | head
+
+
+FamilySearch_-_DGS004303265_00061.jpg
+JPEG Gray Grayscale jpg 8 gray
+
+
+FamilySearch_-_DGS004506846_00011.jpg
+JPEG Gray Grayscale jpg 8 gray
+
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FamilySearch_Lots_of_Bindings/FamilySearch_Pre1800Bindings
+$ identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.jpg | grep "JPEG" | sort | uniq -c
+     34 JPEG Gray Grayscale jpg 8 gray
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FamilySearch_Lots_of_Bindings/FamilySearch_Pre1800Bindings
+$ mogrify -colorspace srgb -type truecolor *.jpg
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FamilySearch_Lots_of_Bindings/FamilySearch_Pre1800Bindings
+$ identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.jpg | grep "JPEG" | sort | uniq -c
+     34 JPEG sRGB Grayscale jpg 8 srgb
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FamilySearch_Lots_of_Bindings/FamilySearch_Pre1800Bindings
+$ #  That looks right. Let's look at the File Properties in Windows File Explrr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FamilySearch_Lots_of_Bindings/FamilySearch_Pre1800Bindings
+$ #+ Good. I checked a few, and under the Details tab, they all had a (total)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FamilySearch_Lots_of_Bindings/FamilySearch_Pre1800Bindings
+$ #+ Bit depth of 24.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FamilySearch_Lots_of_Bindings/FamilySearch_Pre1800Bindings
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FamilySearch_Lots_of_Bindings/FamilySearch_Pre1800Bindings
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FamilySearch_Lots_of_Bindings/FamilySearch_Pre1800Bindings
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FamilySearch_Lots_of_Bindings/FamilySearch_Pre1800Bindings
+$ date && date +'%s_%Y-%m-%dT%H%M%S%z'                                          Thu May 22 16:04:18 MDT 2025
+1747951458_2025-05-22T160418-0600
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FamilySearch_Lots_of_Bindings/FamilySearch_Pre1800Bindings
+$ #  Moving manually based on whether I want them as examples in the training/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FamilySearch_Lots_of_Bindings/FamilySearch_Pre1800Bindings
+$ #+ test set, or if I want them to be part of the Big Binding Search
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FamilySearch_Lots_of_Bindings/FamilySearch_Pre1800Bindings
+$ cd ../../FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ find . -type f | wc -l
+1213
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ find . -type f | awk -F '.' '{print $NF}' | sort | uniq -c
+      3 lst
+      1 out
+   1209 png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ date +'%s' && identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.png | grep "PNG.*png" | sort | uniq -c && date +'%s'
+1747951661
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Breviarium_Alarici_Ms-Lat-4404_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Breviarium_Alarici_Ms-Lat-4404_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Ms-Lat-10753_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Ms-Lat-10753_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Ms-NAL-1614_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Ms-NAL-1614_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+    275 PNG Gray Grayscale png 8 gray
+      3 PNG sRGB Palette png 8 srgb
+    931 PNG sRGB TrueColor png 8 srgb
+1747952225
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ echo "1747952225-1747951661" | bc
+564
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ echo "275+3+931" | bc
+1209
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ # That's all of them
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ echo "564/1209" | bc -l
+.46650124069478908188
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ .46650 seconds/image
+-bash: .46650: command not found
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ #  .46650 seconds/image
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.png 2>&1 > png_id_$(date +'%s_%Y-%m-%sT%H%M%S%z').out
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Breviarium_Alarici_Ms-Lat-4404_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Breviarium_Alarici_Ms-Lat-4404_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Ms-Lat-10753_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Ms-Lat-10753_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Ms-NAL-1614_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Ms-NAL-1614_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.png > png_id_$(date +'%s_%Y-%m-%sT%H%M%S%z').out 2>&1
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ cat >/dev/null << EOF
+>
+> My thoughts from another terminal as that  identify  command was going.
+>
+> Anast@DESKTOP-O7KM5A5 ~
+$ echo "162+113" | bc
+275
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #  275 graysclae is easy - put them in their own directory
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #+ (Remember not to put the colored image 1 - and maybe 2 - that
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #+ are the logo of the library)
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #  I'm 80% positive that the 3 images with Palette are the logo images.
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #+ (well, 3 out of 7). It makes more sense that it would be one of
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #+ the two that come before the BnF doc images (either the 'Gallica' or
+
+Anast@DESKTOP-O7KM5A5 ~
+$nast@DESKTOP-O7KM5A5 ~ that come up are for the 6 BnF images that are logos.
+>
+>
+> cat >/dev/null << EOF
+  identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depcat >/dev/null << EOF                                                         
+  cat >/dev/null << EOF
+
+My thoughts from another terminal as that  identify  command was going.
+
+Anast@DESKTOP-O7KM5A5 ~
+$ echo "162+113" | bc
+275
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #  275 graysclae is easy - put them in their own directory
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #+ (Remember not to put the colored image 1 - and maybe 2 - that
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #+ are the logo of the library)
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #  I'm 80% positive that the 3 images with Palette are the logo images.
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #+ (well, 3 out of 7). It makes more sense that it would be one of
+
+$nast@DESKTOP-O7KM5A5 ~ that come up are for the 6 BnF images that are logos.
+>
+>
+>
+> Pasting gets messed up with the different terminal sizes. One second ...
+>
+>
+>
+>
+>
+>
+>
+>
+> Anast@DESKTOP-O7KM5A5 ~
+$ echo "162+113" | bc
+275
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #  275 graysclae is easy - put them in their own directory
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #+ (Remember not to put the colored image 1 - and maybe 2 - that
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #+ are the logo of the library)
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #  I'm 80% positive that the 3 images with Palette are the logo images.
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #+ (well, 3 out of 7). It makes more sense that it would be one of
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #+ the two that come before the BnF doc images (either the 'Gallica' or
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #+ the '{BnF}', since that's the only logical way we'd have 3. All this
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #+ logic is nice, but I'm just going to be grepping the output of the
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #+ (imagemagick) identify results: `grep -B2 -A1 "Palette" <fname>
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #+ I'm not going to worry about going to GIMP and looking for the palette.
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #  Let's see if the other color images (not counting the logos) gives us
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #+ (931 - 3 = ) 928 images.
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #+ Oh, the imagemagick identify has finished. I'll still count.
+
+Anast@DESKTOP-O7KM5A5 ~
+$ echo "492+435" | bc
+927
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #  Hmm. I did something weird. Hopefully I just didn't get one highlighted
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #  Anyway, the errors that come up are for the 6 BnF images that are logos.
+
+Anast@DESKTOP-O7KM5A5 ~
+$
+>
+>
+>
+> Much better.
+>
+>
+> EOF
+-bash: command substitution: line 1: syntax error near unexpected token `newline
+-bash: command substitution: line 1: `grep -B2 -A1 "Palette" <fname>'
+-bash: bad substitution: no closing "`" in `grep -B2 -A1 "Palette" <fname>
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #+ I'm not going to worry about going to GIMP and looking for the palette.
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #  Let's see if the other color images (not counting the logos) gives us
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #+ (931 - 3 = ) 928 images.
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #+ Oh, the imagemagick identify has finished. I'll still count.
+
+Anast@DESKTOP-O7KM5A5 ~
+$ echo "492+435" | bc
+927
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #  Hmm. I did something weird. Hopefully I just didn't get one highlighted
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #  Anyway, the errors that come up are for the 6 BnF images that are logos.
+
+Anast@DESKTOP-O7KM5A5 ~
+$
+
+
+
+Much better.
+
+
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_
+$ #  Shoot, I didn't remember whether I needed 'EOF' or '"EOF"' (or ''EOF'')
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ #+ to make the '`' not come through. I'd already typed it when I got to the
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ #+ backtick anyway...
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ grep -B2 -A1 "Palette" png_id_1747954118_2025-05-1747954118T164838-0600.out
+
+BnF_-_Breviarium_Alarici_Ms-Lat-4404_00002.png
+PNG sRGB Palette png 8 srgb
+
+--
+
+BnF_-_Ms-Lat-10753_00002.png
+PNG sRGB Palette png 8 srgb
+
+--
+
+BnF_-_Ms-NAL-1614_00002.png
+PNG sRGB Palette png 8 srgb
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ #  The culprits are the images with '{BnF', each second image from the
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ #+ French National Library (Bibliothe`que nationale de France)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ #+ But I'm going to pass all of them through mogrify before sending stuff
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ #+ to JPEG. Anyway, Different folders.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ ## Palette (and other BnF things that threw error stuff)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ mkdir palette
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ ls ./BnF*0000{1..2}.png
+./BnF_-_Breviarium_Alarici_Ms-Lat-4404_00001.png
+./BnF_-_Breviarium_Alarici_Ms-Lat-4404_00002.png
+./BnF_-_Ms-Lat-10753_00001.png
+./BnF_-_Ms-Lat-10753_00002.png
+./BnF_-_Ms-NAL-1614_00001.png
+./BnF_-_Ms-NAL-1614_00002.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ mv ./BnF*0000{1..2}.png palette
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ find palette/ -type f
+palette/BnF_-_Breviarium_Alarici_Ms-Lat-4404_00001.png
+palette/BnF_-_Breviarium_Alarici_Ms-Lat-4404_00002.png
+palette/BnF_-_Ms-Lat-10753_00001.png
+palette/BnF_-_Ms-Lat-10753_00002.png
+palette/BnF_-_Ms-NAL-1614_00001.png
+palette/BnF_-_Ms-NAL-1614_00002.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ ## Grayscale
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ mkdir grayscale
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ mv BnF_-_Ms-Lat-10753*.png grayscale/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ mv BnF_-_Ms-NAL*.png grayscale/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ ## mv BnF_-_Breviarium_Alarici_Ms-Lat-4404_00*.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ find ./grayscale/ -type f -iname "*.png" | wc -l
+275
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ #  Match
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ find ./palette/ -type f -iname "*.png" | wc -l
+6
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ #  Match with my additions
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ find . -maxdepth 1 -type f -iname "*.png" | wc -l
+928
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ #  Add in the 3 extras that I moved into 'palette', and we're right on.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ cd grayscale
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ ## mogrify -format jpg -quality 92 -colorspace srgb -type truecolor *.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ mkdir -p grayscale_bak
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ cp grayscale/*.png grayscale_bak
+cp: cannot stat 'grayscale/*.png': No such file or directory
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ cd ..
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ rm -r grayscale/grayscale_bak/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ mkdir -p grayscale_bak
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ cp grayscale/*.png grayscale_bak
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ cd grayscale
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ #  Don't want to deal with download again.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ time mogrify -format jpg -quality 92 -colorspace srgb -type truecolor *.png  # for 275 files, grayscale -> srgb
+
+real    0m33.297s
+user    0m22.359s
+sys     0m12.186s
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ #  Yeah, it's hugely faster when on the main machine and not on the external
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ cat >/dev/null << EOF
+  identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depidentify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.png 2>&1 > png_id_$(date +'%s_%Y-%m-%sT%H%M%S%z').out^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ history | grep identify | tail -4
+$ #+ Oh, the imagemagick identify has finished. I'll still count.
+$ #+ (imagemagick) identify results: `grep -B2 -A1 "Palette" <fname>
+$ #+ Oh, the imagemagick identify has finished. I'll still count.
+  562  history | grep identify | tail -4
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ history | grep identify | tail -10
+My thoughts from another terminal as that  identify  command was going.
+$ #+ (imagemagick) identify results: `grep -B2 -A1 "Palette" <fname>
+$ #+ Oh, the imagemagick identify has finished. I'll still count.
+My thoughts from another terminal as that  identify  command was going.
+$ #+ (imagemagick) identify results: `grep -B2 -A1 "Palette" <fname>
+$ #+ Oh, the imagemagick identify has finished. I'll still count.
+$ #+ (imagemagick) identify results: `grep -B2 -A1 "Palette" <fname>
+$ #+ Oh, the imagemagick identify has finished. I'll still count.
+  562  history | grep identify | tail -4
+  563  history | grep identify | tail -10
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ history | grep identify | tail -20
+  252  identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.tif | grep -v "^$\|^BHSL" | sort | uniq -c
+  264  date +'%s' && identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" ../GentUnivBib_-_MargeritaPhilisophica_BHSL-HS-0007_-_jpegs/*.jpg | grep -v "^$\|^BHSL" | sort | uniq -c && date +'%s'
+  493  identify -format "
+  503  identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.jpg | head
+  504  identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.jpg | grep "JPEG" | sort | uniq -c
+  506  identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.jpg | grep "JPEG" | sort | uniq -c
+  516  date +'%s' && identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.png | grep "PNG.*png" | sort | uniq -c && date +'%s'
+  523  identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.png 2>&1 > png_id_$(date +'%s_%Y-%m-%sT%H%M%S%z').out
+  524  identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.png > png_id_$(date +'%s_%Y-%m-%sT%H%M%S%z').out 2>&1
+My thoughts from another terminal as that  identify  command was going.
+$ #+ (imagemagick) identify results: `grep -B2 -A1 "Palette" <fname>
+$ #+ Oh, the imagemagick identify has finished. I'll still count.
+My thoughts from another terminal as that  identify  command was going.
+$ #+ (imagemagick) identify results: `grep -B2 -A1 "Palette" <fname>
+$ #+ Oh, the imagemagick identify has finished. I'll still count.
+$ #+ (imagemagick) identify results: `grep -B2 -A1 "Palette" <fname>
+$ #+ Oh, the imagemagick identify has finished. I'll still count.
+  562  history | grep identify | tail -4
+  563  history | grep identify | tail -10
+  564  history | grep identify | tail -20
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.jpg | grep JPEG | sort | uniq -c
+    275 JPEG sRGB Grayscale jpg 8 srgb
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ #  It still says "Grayscale" due to the pixel values. the fact that we
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ #+ get 'sRGB' and 'srgb' tells me we have 3-channel JPGs, as does the fact
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ #+ that checking in File Explorer, Right Click -> Properties -> Details
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ #+ gives the total bit-depth as 24. (From imagemagick's identify, we see
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ #+ that there are 8 bits PER CHANNEL
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ find /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_
+new_-_folder_for_not-yet-ready_new_imgs/
+new_final_jpeg_to_use/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ find /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/ -type d
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/bbs
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/bbs_before_but_added_to_annotated
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/bbs_before_but_added_to_annotated/Older_DGS_Group_Binding_Images
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/BnF_-_Breviarium_Alarici_Ms-Lat-4404
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/BnF_-_Ms-Lat-10753
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/BnF_-_Ms-NAL-1614
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/GentUnivBib_-_BdinskiZbornikVidinBulgarije_BHSL-HS-0408
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/GentUnivBib_-_BHSL-HS-0252
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/GentUnivBib_-_EtymologiaeDeAnima_BHSL-HS-0076
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/GentUnivBib_-_MargeritaPhilisophica_BHSL-HS-0007
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/Germany-Munich-BayerischeStaatsbib_-_BSB-Hss-Cgm-10
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/looking_back_finds
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ mv BnF_-_Ms-Lat*.jpg /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/BnF_-_Ms-Lat-10753/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ mv BnF_-_Ms-NAL*.jpg /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/BnF_-_Ms-NAL-1614/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ #  I'll delete the PNG files in the grayscale directory, since I've got them
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ #+ in their own document-named directory under 'converted_from_PDF'
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ find . -type f -iname -not "*.png"
+find: paths must precede expression: `*.png'
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ find . -type f -not -iname "*.png"
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ find . -type f -not -iname "*.png" | wc -l
+0
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ find . -type f -iname "*.png" | wc -l
+275
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/grayscale
+$ cd ..
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ rm -r grayscale
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ cd palette/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/palette
+$ ls -lAH
+total 108
+-rwxrwx---+ 1 Anast Anast 21721 May 12 19:55 BnF_-_Breviarium_Alarici_Ms-Lat-4404_00001.png
+-rwxrwx---+ 1 Anast Anast 12031 May 12 19:55 BnF_-_Breviarium_Alarici_Ms-Lat-4404_00002.png
+-rwxrwx---+ 1 Anast Anast 21721 May 12 19:57 BnF_-_Ms-Lat-10753_00001.png
+-rwxrwx---+ 1 Anast Anast 12031 May 12 19:57 BnF_-_Ms-Lat-10753_00002.png
+-rwxrwx---+ 1 Anast Anast 21721 May 12 19:57 BnF_-_Ms-NAL-1614_00001.png
+-rwxrwx---+ 1 Anast Anast 12031 May 12 19:57 BnF_-_Ms-NAL-1614_00002.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/palette
+$ identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.png | grep "PNG.*png" | sort | uniq -c
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Breviarium_Alarici_Ms-Lat-4404_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Breviarium_Alarici_Ms-Lat-4404_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Ms-Lat-10753_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Ms-Lat-10753_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Ms-NAL-1614_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Ms-NAL-1614_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+      3 PNG sRGB Palette png 8 srgb
+      3 PNG sRGB TrueColor png 8 srgb
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/palette
+$ identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.png
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Breviarium_Alarici_Ms-Lat-4404_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Breviarium_Alarici_Ms-Lat-4404_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Ms-Lat-10753_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Ms-Lat-10753_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Ms-NAL-1614_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+identify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Ms-NAL-1614_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+
+
+BnF_-_Breviarium_Alarici_Ms-Lat-4404_00001.png
+PNG sRGB TrueColor png 8 srgb
+
+
+BnF_-_Breviarium_Alarici_Ms-Lat-4404_00002.png
+PNG sRGB Palette png 8 srgb
+
+
+BnF_-_Ms-Lat-10753_00001.png
+PNG sRGB TrueColor png 8 srgb
+
+
+BnF_-_Ms-Lat-10753_00002.png
+PNG sRGB Palette png 8 srgb
+
+
+BnF_-_Ms-NAL-1614_00001.png
+PNG sRGB TrueColor png 8 srgb
+
+
+BnF_-_Ms-NAL-1614_00002.png
+PNG sRGB Palette png 8 srgb
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/palette
+$ time mogrify -format jpg -quality 92 -colorspace srgb -type truecolor *.png
+mogrify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Breviarium_Alarici_Ms-Lat-4404_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+mogrify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Breviarium_Alarici_Ms-Lat-4404_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+mogrify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Ms-Lat-10753_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+mogrify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Ms-Lat-10753_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+mogrify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Ms-NAL-1614_00001.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+mogrify: iCCP: profile 'CalRGB': 0h: PCS illuminant is not D50 `BnF_-_Ms-NAL-1614_00002.png' @ warning/png.c/MagickPNGWarningHandler/1748.
+
+real    0m0.109s
+user    0m0.031s
+sys     0m0.061s
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/palette
+$ find . -type f
+./BnF_-_Breviarium_Alarici_Ms-Lat-4404_00001.jpg
+./BnF_-_Breviarium_Alarici_Ms-Lat-4404_00001.png
+./BnF_-_Breviarium_Alarici_Ms-Lat-4404_00002.jpg
+./BnF_-_Breviarium_Alarici_Ms-Lat-4404_00002.png
+./BnF_-_Ms-Lat-10753_00001.jpg
+./BnF_-_Ms-Lat-10753_00001.png
+./BnF_-_Ms-Lat-10753_00002.jpg
+./BnF_-_Ms-Lat-10753_00002.png
+./BnF_-_Ms-NAL-1614_00001.jpg
+./BnF_-_Ms-NAL-1614_00001.png
+./BnF_-_Ms-NAL-1614_00002.jpg
+./BnF_-_Ms-NAL-1614_00002.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/palette
+$ identify -format "\n\n%f\n%[magick] %[colorspace] %[type] %[extension] %[bit-depth] %[channels]\n" *.jpg | grep "JPEG" | sort | uniq -c
+      6 JPEG sRGB TrueColor jpg 8 srgb
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/palette
+$ #  good
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/palette
+$ mv ./BnF_-_Breviarium_Alarici_Ms-Lat-4404_0000*.jpg /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/BnF_-_Breviarium_Alarici_Ms-Lat-4404/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/palette
+$ mv ./BnF_-_Ms-Lat-10753_0000*.jpg /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/BnF_-_Ms-Lat-10753/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/palette
+$ mv ./BnF_-_Ms-NAL-1614_0000*.jpg /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/BnF_-_Ms-NAL-1614/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/palette
+$ find . -type f
+./BnF_-_Breviarium_Alarici_Ms-Lat-4404_00001.png
+./BnF_-_Breviarium_Alarici_Ms-Lat-4404_00002.png
+./BnF_-_Ms-Lat-10753_00001.png
+./BnF_-_Ms-Lat-10753_00002.png
+./BnF_-_Ms-NAL-1614_00001.png
+./BnF_-_Ms-NAL-1614_00002.png
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test/palette
+$ cd ..
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ rm -r palette/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ find . -type d
+.
+./grayscale_bak
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ rm -r grayscale_bak/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ find . -type f -not -iname "*.png"
+./alarici_1.lst
+./alarici_4.lst
+./fnames.lst
+./png_id_1747954118_2025-05-1747954118T164838-0600.out
+./rename.out
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ mv fnames.lst fnames_1747954118_2025-05-1747954118T164838-0600.lst
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ mv rename.out rename_1747954118_2025-05-1747954118T164838-0600.out
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ find . -type f -not -iname "*.png"
+./alarici_1.lst
+./alarici_4.lst
+./fnames_1747954118_2025-05-1747954118T164838-0600.lst
+./png_id_1747954118_2025-05-1747954118T164838-0600.out
+./rename_1747954118_2025-05-1747954118T164838-0600.out
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ find . -type f -not -iname "*.png" -print0 | xargs -I'{}' -0 mv "{}" /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ find . -type f -not -iname "*.png"
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ find . -type f -iname "*.png" | wc -l
+928
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ find . -type f | sed 's#^[.]/##g; s#_[0-9]\{5\}[.]png$##g' | sort | uniq -c
+    492 BnF_-_Breviarium_Alarici_Ms-Lat-4404
+    436 Germany-Munich-BayerischeStaatsbib_-_BSB-Hss-Cgm-10
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ # The German files are especially big, but I don't want to see how to show it
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ date +'%s_%Y-%m-%dT%H%M%S%z' && time mogrify -format jpg -quality 92 -colorspace srgb -type truecolor *.png && date +'%s_%Y-%m-%dT%H%M%S%z'
+1747957434_2025-05-22T174354-0600
+
+real    9m9.424s
+user    6m59.781s
+sys     1m48.687s
+1747957984_2025-05-22T175304-0600
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ date +'%s_%Y-%m-%dT%H%M%S%z'
+1747958242_2025-05-22T175722-0600
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ find . -type f -iname "*.jpg" | wc -l
+928
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ find . -type f | sed 's#^[.]/##g; s#_[0-9]\{5\}[.]\(png\|jpg\)$##g' | sort | uniq -c
+    984 BnF_-_Breviarium_Alarici_Ms-Lat-4404
+    872 Germany-Munich-BayerischeStaatsbib_-_BSB-Hss-Cgm-10
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ mv BnF_-_Breviarium_Alarici_Ms-Lat-4404_00*.jpg /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_
+new_-_folder_for_not-yet-ready_new_imgs/
+new_final_jpeg_to_use/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ mv BnF_-_Breviarium_Alarici_Ms-Lat-4404_00*.jpg /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/BnF_-_Breviarium_Alarici_Ms-Lat-4404/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ mv Germany-Munich-BayerischeStaatsbib_-_BSB-Hss-Cgm-10_00*.jpg /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_final_jpeg_to_use/Germany-Munich-BayerischeStaatsbib_-_BSB-Hss-Cgm-10/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ find . -type f | sed 's#^[.]/##g; s#_[0-9]\{5\}[.]\(png\|jpg\)$##g' | sort | uniq -c
+    492 BnF_-_Breviarium_Alarici_Ms-Lat-4404
+    436 Germany-Munich-BayerischeStaatsbib_-_BSB-Hss-Cgm-10
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ date && date +'%s'
+Thu May 22 18:04:10 MDT 2025
+1747958650
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF/four_to_test
+$ exit
