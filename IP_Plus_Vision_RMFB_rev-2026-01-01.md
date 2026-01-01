@@ -1,9 +1,9 @@
 # IP_Plus_Vision_RMFB_rev-2026-01-01
 
 **Project:** RMFB — Reused Manuscript Fragments in Bindings  
-**Author:** Dave Black (DWB, &nbsp;&nbsp;&nbsp;&nbsp; GitHub @bballdave025)  
+**Author:** David Black (DWB, &nbsp;&nbsp;&nbsp;&nbsp; GitHub @bballdave025)  
 **Status:** Working vision + technical direction (evolves)  
-**Companion doc(s):** [`IP_Notes_-_RMFB_2025-12-29.md`](#) (snapshot log)  
+**Companion doc(s):** [`IP_Notes_-_RMFB_2025-12-29.md`](https://github.com/bballdave025/dwb-ip-notes/blob/main/IP_Notes_-_RMFB_2025-12-29.md) (snapshot log)  
 **Repository note:** This document is intended to protect both the author and any current/future employers by clarifying provenance, scope, and public disclosure boundaries.
 
 ---
