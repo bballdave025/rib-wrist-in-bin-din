@@ -1,3 +1,5 @@
+NO GREAT FORMATTING, YET. TWO PARTS, NOW SEPARATED BY TRIPLE HYPHENS, WHICH WILL NEED TO BE WOVEN TOGETHER
+
 Labeling & Evaluation Protocol
 Overview
 This project involves detecting reused manuscript materials—particularly reuse in bindings—across large, heterogeneous digitized image corpora. Because the phenomena of interest include low-visibility signals, material ambiguity, and historically contingent interpretation, we adopt a labeling and evaluation protocol that explicitly separates:
@@ -77,3 +79,63 @@ Evidence of increasing domain understanding
 A motivation for abstention-aware modeling
 A justification for collaborative review
 Rather than hiding ambiguity, the protocol makes it measurable, modelable, and useful.
+
+
+---
+
+
+Labeling & Evaluation Protocol
+1. Scope and Philosophy
+This project distinguishes primary classification labels (which define ground truth) from diagnostic annotations (which record human perception, difficulty, or error risk). Only primary labels are intended for model training. Diagnostic annotations are intentionally sparse, non-exhaustive, and historical.
+Uncertainty, ambiguity, and abstention are treated as model behaviors, not human-assigned ground-truth classes.
+2. Primary Labels (Training Ground Truth)
+Primary labels are encoded in filenames and are required for all images in the curated dataset.
+These include, at minimum:
+Reuse vs. non-reuse
+Binding reuse vs. non-binding reuse
+Specific reuse subclasses (e.g., outside cover reuse, etc.)
+These labels are assumed to be forced-choice at the dataset level, even in cases where human certainty is low. This constraint exists to support supervised training and later expert refinement.
+3. Diagnostic Annotations (Non-Exhaustive, Non-Training)
+3.1 fko — Fakeout (Recall-Control Diagnostic)
+fko marks human-observed false affordances: visual structures that strongly resemble reuse indicators but ultimately do not correspond to the target reuse feature.
+Key properties of fko:
+Not exhaustive: many fakeouts are intentionally left unlabeled
+Not a class: models are not expected to learn fko as a discriminative category
+Orthogonal to reuse: an image may be fko and contain valid reuse of a different type
+Recall-control role: highlights where humans (and models) may over-detect reuse
+fko exists to document where recall pressure is dangerous, not to define negative ground truth.
+fko annotations are used for:
+error analysis
+calibration diagnostics
+explaining abstention and review workflows
+pedagogy and collaborator onboarding
+They are never used as training labels.
+3.2 suh — Deprecated Diagnostic (Forbidden Going Forward)
+suh (“seems unclear / hard”) was introduced late in dataset curation as an informal diagnostic and was used inconsistently to mark:
+human uncertainty
+anticipated model difficulty
+ambiguous visual evidence
+lack of confidence in a forced decision
+Because suh conflates multiple concepts and was never rigorously defined, it is deprecated.
+suh will not be used in training, evaluation, or future annotation
+suh will not be used to define abstention behavior
+suh may be referenced only in documentation to explain dataset evolution
+No relabeling is required or desired.
+4. Abstention and Ambiguity
+Abstention is treated as a model-level capability, not a human label.
+Humans are required to make forced primary labels during dataset creation
+Models may abstain based on calibrated uncertainty thresholds
+Evaluation may include:
+forced-decision metrics
+abstention-aware metrics
+cost-sensitive recall/precision tradeoffs
+Diagnostic annotations (e.g., fko) may be used to analyze abstention behavior but never to define it.
+5. Evaluation Philosophy
+Evaluation explicitly separates:
+Ground-truth correctness
+Human perceptual traps
+Model confidence and calibration
+Operational cost of false negatives vs. false positives
+Sparse diagnostics are a feature, not a flaw: they preserve the distinction between what is known, what is suspected, and what must be decided anyway.
+Summary (one-sentence anchor)
+This labeling scheme enforces decisive ground truth while preserving human uncertainty as diagnostic signal rather than semantic noise.
